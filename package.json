@@ -7,7 +7,7 @@
     "build-dev": "npm run lint && webpack --progress --config ./webpack.config.js -d -w",
     "build-prod": "npm run lint && webpack --progress --config ./webpack.config.jd -p",
     "start": "webpack-dev-server --progress --config ./webpack.config.js --port 8080 --mode development --open --hot",
-    "Analyze": "webpack-bundle-analyzer --mode server --port 4000 dist/stats.json",
+    "analyze": "webpack-bundle-analyzer --mode server --port 4000 dist/stats.json",
     "lint": "eslint src/**/*.* --ext src/**/*.css --ext src/**/*.png --ext src/**/*.otf --fix",
     "deploy-local": "http-server -p 4040 dist/",
     "deploy": "http-server NODE_ENV=production -p 4040 dist/",
