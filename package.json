@@ -1,0 +1,41 @@
+{
+  "name": "geektrust",
+  "version": "1.0.0",
+  "description": "Geektrust Frontend Project",
+  "main": "index.js",
+  "scripts": {
+    "build-dev": "npm run lint && webpack --progress --config ./webpack.config.js -d -w",
+    "build-prod": "npm run lint && webpack --progress --config ./webpack.config.jd -p",
+    "start": "webpack-dev-server --progress --config ./webpack.config.js --port 8080 --mode development --open --hot",
+    "Analyze": "webpack-bundle-analyzer --mode server --port 4000 dist/stats.json",
+    "lint": "eslint src/**/*.* --ext src/**/*.css --ext src/**/*.png --ext src/**/*.otf --fix",
+    "deploy-local": "http-server -p 4040 dist/",
+    "deploy": "http-server NODE_ENV=production -p 4040 dist/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ankur",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^5.10.0",
+    "path": "^0.12.7",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^2.0.0",
+    "eslint": "^5.10.0",
+    "eslint-plugin-react": "^7.11.1",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.27.1",
+    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}
