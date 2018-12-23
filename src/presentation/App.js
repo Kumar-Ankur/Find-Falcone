@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
-import '../../styles/app.css';
+import React, { Component, Fragment } from 'react';
+import Header from './Header';
+import Intro from './Intro';
 
 class App extends Component {
 	render() {
 		return (
-			<div className='title'>
-				<span>Welcome to React from Stratch</span>
-			</div>
+			<Fragment>
+				<Header />
+				<Intro />
+			</Fragment>
 		);
 	}
 }

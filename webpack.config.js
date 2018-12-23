@@ -31,7 +31,7 @@ module.exports = {
         chunkFilename: "[id].js",
     },
     resolve: {
-        extensions: [".js", ".jsx", ".css", ".otf", ".png"]
+        extensions: [".js", ".jsx", ".css", ".otf", ".png",".ico"]
       },
     devtool: 'inline-source-map',
     devServer: {
@@ -48,7 +48,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/,
+                test: /\.(scss|sass|css)$/,
                 use: [
                     {
                         loader: 'style-loader'
@@ -58,20 +58,18 @@ module.exports = {
                         options: {
                             modules: false,
                             importLoaders: 1,
-                            localIdentName: '[name]_[local]_[hash:base64]',
+                            localIdentName: '[name]_[local]___[hash:base64:5]',
                             sourceMap: true,
                             url: false
                         }
-                    }
+                    },
+                    'sass-loader'
                 ]
             },
             {
-                test: /\.scss$/,
-                loader: "sass-loader",
-                options: {
-                    sourceMap: true
-                }
-            }
+                test: /\.(svg|png|gif|jpg|ico)$/,
+                loader: 'file-loader'
+            },
         ]
     },
     plugins: [htmlPlugin, BundleAnalyze]
