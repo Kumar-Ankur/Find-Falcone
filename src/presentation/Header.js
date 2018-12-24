@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import styles from '../../sass/main.scss';
 import Logo from '../../img/Logo.png';
 
 class Header extends Component {
@@ -12,10 +11,10 @@ class Header extends Component {
         <div className="header__text-box">
           <h1 className="text-primary">
             <span className="text-primary--main">Falcone</span>
-            <span className="text-primary--sub">just start the game</span>
+            <span className="text-primary--sub">Ready to find Falcone?</span>
           </h1>
           <a href="#" className="btn btn--animated btn--white">
-            Let'start
+            Let's start
           </a>
         </div>
       </header>
