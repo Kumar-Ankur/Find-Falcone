@@ -23,7 +23,7 @@ module.exports = {
      * webpack 4 there is no need to define the entry point: it will take ./src/index.js as the default!
      */
     entry : {
-        main: './src/index.js',
+        main: ['./src/index.js','./sass/main.scss', './css/style.css'],
     },
     output : {
         path: path.resolve(__dirname, 'dist'),
@@ -31,7 +31,7 @@ module.exports = {
         chunkFilename: "[id].js",
     },
     resolve: {
-        extensions: [".js", ".jsx", ".css", ".otf", ".png",".ico"]
+        extensions: [".js", ".jsx", ".css", ".otf", ".png",".ico",".scss"]
       },
     devtool: 'inline-source-map',
     devServer: {
@@ -49,23 +49,30 @@ module.exports = {
             },
             {
                 test: /\.(scss|sass|css)$/,
-                use: [
-                    {
-                        loader: 'style-loader'
-                    }, 
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            modules: false,
-                            importLoaders: 1,
-                            localIdentName: '[name]_[local]___[hash:base64:5]',
-                            sourceMap: true,
-                            url: false
-                        }
-                    },
-                    'sass-loader'
-                ]
+                loader: ['style-loader','css-loader','sass-loader']
             },
+            // {
+            //     test: /\.css$/,
+            //     use: [
+            //         {
+            //             loader: 'style-loader'
+            //         }, 
+            //         {
+            //             loader: 'css-loader',
+            //             options: {
+            //                 modules: false,
+            //                 importLoaders: 1,
+            //                 localIdentName: '[name]_[local]___[hash:base64:5]',
+            //                 sourceMap: true,
+            //                 url: false
+            //             }
+            //         }
+            //     ]
+            // },
+            // {
+            //     test: /\.(scss|sass)$/,
+            //     loader: ['style-loader','css-loader','sass-loader']
+            // },
             {
                 test: /\.(svg|png|gif|jpg|ico)$/,
                 loader: 'file-loader'
