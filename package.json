@@ -11,7 +11,6 @@
     "lint": "eslint src/**/*.* --ext src/**/*.css --ext src/**/*.png --ext src/**/*.otf --fix",
     "deploy-local": "http-server -p 4040 dist/",
     "deploy": "http-server NODE_ENV=production -p 4040 dist/",
-    "compile:sass": "node-sass sass/main.scss css/style.css -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ankur",
