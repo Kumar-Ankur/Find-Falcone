@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 import Logo from "../../img/Logo.png";
 
 class Header extends Component {
@@ -13,9 +15,11 @@ class Header extends Component {
             <span className="text-primary--main">Falcone</span>
             <span className="text-primary--sub">Ready to find Falcone?</span>
           </h1>
-          <a href="#" className="btn btn--animated btn--white">
-            Let's start
-          </a>
+          <Link to="/findFalcone">
+            <a href="#" className="btn btn--animated btn--white">
+              Let's start
+            </a>
+          </Link>
         </div>
       </header>
     );
