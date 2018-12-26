@@ -6,11 +6,9 @@ class Navbar extends Component {
     return (
       <div className="navbar">
         <div className="navbar__text">
-          <Link to="/findFalcone">
             <a href="#" className="navbar__text--separator navbtn navbtn--animated navbtn--white">
               Reset
             </a>
-          </Link>
           
           <Link to="/">
             <a href="#" className="navbar__text--separator navbtn navbtn--animated navbtn--white">

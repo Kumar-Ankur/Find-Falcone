@@ -17,7 +17,7 @@ class Header extends Component {
           </h1>
           <Link to="/findFalcone">
             <a href="#" className="btn btn--animated btn--white">
-              Let's start
+              Help King Shan to find Falcone
             </a>
           </Link>
         </div>
