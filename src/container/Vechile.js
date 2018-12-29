@@ -12,7 +12,7 @@ const styles = {
   },
   radioButton: {
     marginBottom: 16,
-    fontSize: "17px",
+    fontSize: "15px",
     marginTop: "40px"
   }
 };
@@ -32,6 +32,7 @@ class Vechile extends Component {
       .then(vechile => vechile.json())
       .then(vechile => this.setState({ vechile_list: vechile }));
   }
+
 
   render() {
     const renderVechile = this.state.vechile_list.map(vech => {

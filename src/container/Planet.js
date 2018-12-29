@@ -35,16 +35,8 @@ class Planet extends Component {
       });
   }
 
-  renderPlanet = () => {
-    let list = [];
-
-    for (var i = 0; i < 4; i++) {
-      list.push(<AutocompleteList key={i} name={this.state.planet_name} />);
-    }
-    return list;
-  };
-
   render() {
+    
     return (
       <main>
         <section className="section-planet">
@@ -53,7 +45,7 @@ class Planet extends Component {
               &larr; Select Planets and Vechiles to find Falcone &rarr;
             </h2>
           </div>
-          {this.renderPlanet()}
+          <AutocompleteList name={this.state.planet_name} />
         </section>
       </main>
     );

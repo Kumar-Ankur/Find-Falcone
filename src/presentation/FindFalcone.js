@@ -9,9 +9,11 @@ class FindFalcone extends Component {
       <div className="section-falcone">
         <Navbar />
         <Planet />
-        <a href="#" className="navbtn navbtn--animated navbtn--white">
-          Are you ready??
-        </a>
+        <section className="section-btn">
+          <a href="#" className="navbtn navbtn--animated navbtn--white">
+            Are you ready??
+          </a>
+        </section>
       </div>
     );
   }
