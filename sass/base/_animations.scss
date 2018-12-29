@@ -53,3 +53,20 @@
       transform: translate(0)
     }
   }
+
+  @keyframes vechileAnimation {
+    0% {
+      opacity: 0;
+      transform: translateY(-80rem);
+    }
+
+    80% {
+      opacity: 1;
+      transform: translateY(4rem);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate(0)
+    }
+  }

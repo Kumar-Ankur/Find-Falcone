@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Vechile from "../container/Vechile";
+
 import Autocomplete from "material-ui/AutoComplete";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
@@ -8,7 +10,8 @@ class AutoCompleteList extends Component {
 
     this.state = {
       search: "",
-      name: []
+      name: [],
+      flag: false
     };
   }
 
@@ -17,11 +20,15 @@ class AutoCompleteList extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ name: nextProps.name});
+    this.setState({ name: nextProps.name });
   }
 
-  handleSearch(e) {
-    this.setState({ search: e });
+  handleSearch(val) {
+    if (val !== "") {
+      this.setState({ search: val, flag: true });
+    } else {
+      this.setState({ flag: false });
+    }
   }
 
   render() {
@@ -34,10 +41,17 @@ class AutoCompleteList extends Component {
             dataSource={this.state.name}
             searchText={this.state.searchText}
             filter={(searchText, key) => key.indexOf(searchText) !== -1}
-            listStyle={{ maxHeight: 300, overflow: "auto" }}
+            listStyle={{
+              maxHeight: 300,
+              overflow: "auto",
+              backgroundColor: "#f7f7f7",
+              overflowY: "hidden"
+            }}
             onNewRequest={value => this.handleSearch.call(this, value)}
             onUpdateInput={value => this.handleSearch.call(this, value)}
           />
+
+          {this.state.flag ? <Vechile /> : "" }
         </MuiThemeProvider>
       </section>
     );

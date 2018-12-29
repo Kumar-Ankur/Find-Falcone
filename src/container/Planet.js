@@ -50,7 +50,7 @@ class Planet extends Component {
         <section className="section-planet">
           <div className="u-center-text u-margin-bottom-big">
             <h2 className="heading-secondary">
-              Select Planets and Vechiles to find Falcone:
+              &larr; Select Planets and Vechiles to find Falcone &rarr;
             </h2>
           </div>
           {this.renderPlanet()}

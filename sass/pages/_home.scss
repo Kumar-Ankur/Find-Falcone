@@ -26,14 +26,26 @@
     margin-top: -10rem;
 }
 
-.section-planet {
+.section-falcone {
     background-color: $color-grey-light-1;
-    padding: 55rem 0;
-    margin-top: -45rem;
+    padding: 50px 0;
+    margin-top: 40px;
     width: 100%;
 }
 
 .section-auto {
     display: inline-block;
     margin-left:7rem;
+}
+
+.section-planet {
+    width: 100%;
+    background-color: $color-grey-light-1;
+    padding: 8rem 0;
+}
+
+.section-vechile {
+    margin-top: 5rem;
+    transition: animation 1.5s ease-out;
+    animation: vechileAnimation 1.5s;
 }
