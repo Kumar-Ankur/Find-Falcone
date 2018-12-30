@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AutocompleteList from "../presentation/Autocomplete";
+import AutocompleteList from "./Autocomplete";
 
 class Planet extends Component {
   constructor(props) {
@@ -41,11 +41,11 @@ class Planet extends Component {
       <main>
         <section className="section-planet">
           <div className="u-center-text u-margin-bottom-big">
-            <h2 className="heading-secondary">
-              &larr; Select Planets and Vechiles to find Falcone &rarr;
+            <h2 className="section-planet__heading">
+              Select Planets and Vechiles to find Falcone
             </h2>
           </div>
-          <AutocompleteList name={this.state.planet_name} />
+          <AutocompleteList name={this.state.planet_name} planetList={this.state.planet_list}/>
         </section>
       </main>
     );

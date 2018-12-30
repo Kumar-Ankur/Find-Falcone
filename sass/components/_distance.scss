@@ -1,0 +1,66 @@
+.section-distance {
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  transition: animation 2s;
+
+  &__1 {
+    display: inline-block;
+    position: absolute;
+    left: 7rem;
+    top: -18rem;
+    background-image: linear-gradient(
+      to right,
+      $color-tertiary-light,
+      $color-tertiary-dark
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: distanceAnimation 2s;
+  }
+
+  &__2 {
+    display: inline-block;
+    position: absolute;
+    left: 40rem;
+    top: -18rem;
+    background-image: linear-gradient(
+      to right,
+      $color-tertiary-light,
+      $color-tertiary-dark
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: distanceAnimation 2s;
+  }
+
+  &__3 {
+    display: inline-block;
+    position: absolute;
+    left: 72rem;
+    top: -18rem;
+    background-image: linear-gradient(
+      to right,
+      $color-tertiary-light,
+      $color-tertiary-dark
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: distanceAnimation 2s;
+  }
+
+  &__4 {
+    display: inline-block;
+    position: absolute;
+    left: 105rem;
+    top: -18rem;
+    background-image: linear-gradient(
+      to right,
+      $color-tertiary-light,
+      $color-tertiary-dark
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: distanceAnimation 2s;
+  }
+}

@@ -1,56 +1,68 @@
-.section-intro {
-    background-color: $color-grey-light-1;
-    padding: 20rem 0;
-    margin-top: -20vh;
-}
-
-.section-feature {
-    padding: 20rem 0;
-    // background-image: linear-gradient(
-    //     to right bottom,
-    //     rgba($color-primary-light, 0.8),
-    //     rgba($color-primary-dark, 0.8)),
-    //   url("../img/nat-4.jpg");
-    background-size: cover;
-    transform: skewY(-7deg);
-    margin-top: -10rem;
-    
-    & > * {
-        transform: skewY(7deg);
-    }
-}
-
-.section-tours {
-    background-color: $color-grey-light-1;
-    padding: 25rem 0 15rem 0;
-    margin-top: -10rem;
-}
-
 .section-falcone {
-    background-color: $color-grey-light-1;
-    padding: 3rem 0 8rem 0;
-    margin-top: 1rem;
-    width: 100%;
+  background-color: $color-grey-light-1;
+  padding: 3rem 0 1rem 0;
+  margin-top: 1rem;
+  width: 100%;
 }
 
 .section-auto {
-    display: inline-block;
-    margin-left:7rem;
+  display: inline-block;
+  margin-left: 7rem;
+  margin-top: 5rem;
 }
 
 .section-planet {
-    width: 100%;
-    background-color: $color-grey-light-1;
-    padding: 8rem 0;
+  width: 100%;
+  background-color: $color-grey-light-1;
+  padding: 2rem 0 9rem 0;
+
+  &__heading {
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    position: absolute;
+    left: 10rem;
+    top: 10rem;
+    font-size: 2.5rem;
+    background-image: linear-gradient(
+      to right,
+      $color-tertiary-light,
+      $color-tertiary-dark
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+  }
 }
 
 .section-vechile {
-    margin-top: 5rem;
-    transition: animation 1.5s ease-out;
-    animation: vechileAnimation 1.5s;
+  margin-top: 5rem;
+  transition: animation 1.5s ease-out;
+  animation: vechileAnimation 1.5s;
 }
 
 .section-btn {
-    margin-left: 40%;
-    margin-top: 27rem;
+  margin-left: 40%;
+  margin-top: 27rem;
+}
+
+.section-time {
+  position: relative;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: animation 2s ease-in;
+  letter-spacing: 0.2rem;
+
+  &__heading {
+    position: absolute;
+    background-image: linear-gradient(
+      to right,
+      $color-tertiary-light,
+      $color-tertiary-dark
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    right: 7rem;
+    top: 2rem;
+    animation: timeAnimation 2s;
+  }
 }
