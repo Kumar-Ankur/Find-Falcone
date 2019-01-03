@@ -3,7 +3,7 @@ import React, { Component, Fragment } from "react";
 import Planet from "../container/Planet";
 import Navbar from "./Navbar";
 import Time from "../container/Time";
-import Footer from "./Footer";
+import Footer from "../container/Footer";
 
 class FindFalcone extends Component {
   render() {

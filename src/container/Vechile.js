@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { RadioButton, RadioButtonGroup } from "material-ui/RadioButton";
+import Footer from "./Footer";
 
 const styles = {
   block: {
