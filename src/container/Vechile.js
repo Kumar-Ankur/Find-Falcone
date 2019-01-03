@@ -2,8 +2,6 @@ import React, { Component, Fragment } from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { RadioButton, RadioButtonGroup } from "material-ui/RadioButton";
 
-import ActionFavorite from 'material-ui/svg-icons/action/favorite';
-import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 
 const styles = {
   block: {
@@ -23,7 +21,9 @@ class Vechile extends Component {
     super(props);
 
     this.state = {
-      vechile_list: []
+      vechile_list: [],
+      PlanetDetails: this.props.PlanetDetails,
+      vechile_name: ""
     };
   }
 
@@ -33,6 +33,26 @@ class Vechile extends Component {
       .then(vechile => this.setState({ vechile_list: vechile }));
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ PlanetDetails: nextProps.PlanetDetails })
+  }
+
+  filteredData = (value, vechileDetails) => {
+    let selectedVechile = vechileDetails.filter(checkedVechile => {
+      if(checkedVechile.name === value) {
+        return checkedVechile;
+      }
+    })
+    return selectedVechile;
+  }
+
+  vechileSelected = (value, PlanetDetails,vechileDetails) => {
+    let selectedVechile = this.filteredData(value, vechileDetails);
+    console.log(value, PlanetDetails, selectedVechile);
+    if(PlanetDetails.distance > selectedVechile.max_distance) {
+      this.setState({ vechile_name: value })
+    }
+  }
 
   render() {
     const renderVechile = this.state.vechile_list.map(vech => {
@@ -41,6 +61,7 @@ class Vechile extends Component {
             value= {`${vech.name}`}
             label={`${vech.name} (${vech.total_no})`}
             style={styles.radioButton}
+            disabled = {vech.name === this.state.vechile_name ? true : false }
           />
         )
     })
@@ -48,7 +69,11 @@ class Vechile extends Component {
     return (
       <div className="section-vechile">
         <MuiThemeProvider>
-        <RadioButtonGroup name="shipSpeed" defaultSelected="not_light">
+        <RadioButtonGroup 
+        name="shipSpeed" 
+        defaultSelected="not_light"
+        onChange = {(event,value) => this.vechileSelected(value, this.state.PlanetDetails, this.state.vechile_list)}
+        >
          { renderVechile }
         </RadioButtonGroup>
         </MuiThemeProvider>

@@ -29,19 +29,23 @@ class AutoCompleteList extends Component {
       selected_planet_details: {
         "Destination 1": {
           name: "",
-          distance: 0
+          distance: 0,
+          destination: "Destination 1"
         },
         "Destination 2": {
           name: "",
-          distance: 0
+          distance: 0,
+          destination: "Destination 2"
         },
         "Destination 3": {
           name: "",
-          distance: 0
+          distance: 0,
+          destination: "Destination 3"
         },
         "Destination 4": {
           name: "",
-          distance: 0
+          distance: 0,
+          destination: "Destination 4"
         }
       }
     };
@@ -89,7 +93,8 @@ class AutoCompleteList extends Component {
               ...{
                 "Destination 1": {
                   name: value,
-                  distance: distance_from_Lengaburu[0].distance
+                  distance: distance_from_Lengaburu[0].distance,
+                  destination: "Destination 1"
                 }
               }
             }
@@ -105,7 +110,8 @@ class AutoCompleteList extends Component {
               ...{
                 "Destination 1": {
                   name: "",
-                  distance: 0
+                  distance: 0,
+                  destination: "Destination 1"
                 }
               }
             }
@@ -126,7 +132,8 @@ class AutoCompleteList extends Component {
               ...{
                 "Destination 2": {
                   name: value,
-                  distance: distance_from_Lengaburu[0].distance
+                  distance: distance_from_Lengaburu[0].distance,
+                  destination: "Destination 2"
                 }
               }
             }
@@ -142,7 +149,8 @@ class AutoCompleteList extends Component {
               ...{
                 "Destination 2": {
                   name: "",
-                  distance: 0
+                  distance: 0,
+                  destination: "Destination 2"
                 }
               }
             }
@@ -162,7 +170,8 @@ class AutoCompleteList extends Component {
               ...{
                 "Destination 3": {
                   name: value,
-                  distance: distance_from_Lengaburu[0].distance
+                  distance: distance_from_Lengaburu[0].distance,
+                  destination: "Destination 3"
                 }
               }
             }
@@ -178,7 +187,8 @@ class AutoCompleteList extends Component {
               ...{
                 "Destination 3": {
                   name: "",
-                  distance: 0
+                  distance: 0,
+                  destination: "Destination 3"
                 }
               }
             }
@@ -198,7 +208,8 @@ class AutoCompleteList extends Component {
               ...{
                 "Destination 4": {
                   name: value,
-                  distance: distance_from_Lengaburu[0].distance
+                  distance: distance_from_Lengaburu[0].distance,
+                  destination: "Destination 4"
                 }
               }
             }
@@ -214,7 +225,8 @@ class AutoCompleteList extends Component {
               ...{
                 "Destination 4": {
                   name: "",
-                  distance: 0
+                  distance: 0,
+                  destination: "Destination 4"
                 }
               }
             }
@@ -267,18 +279,18 @@ class AutoCompleteList extends Component {
           <div className="row">
             <div className="col-1-of-4 vechile vechile__1">
               {" "}
-              {this.state.isVisible.vechile1 ? <Vechile /> : ""}
+              {this.state.isVisible.vechile1 ? <Vechile PlanetDetails = {this.state.selected_planet_details["Destination 1"]}/> : ""}
             </div>
             <div className="col-1-of-4 vechile vechile__2">
               {" "}
-              {this.state.isVisible.vechile2 ? <Vechile /> : ""}
+              {this.state.isVisible.vechile2 ? <Vechile PlanetDetails = {this.state.selected_planet_details["Destination 2"]}/> : ""}
             </div>
             <div className="col-1-of-4 vechile vechile__3">
-              {this.state.isVisible.vechile3 ? <Vechile /> : ""}
+              {this.state.isVisible.vechile3 ? <Vechile PlanetDetails = {this.state.selected_planet_details["Destination 3"]}/> : ""}
             </div>
             <div className="col-1-of-4 vechile vechile__4">
               {" "}
-              {this.state.isVisible.vechile4 ? <Vechile /> : ""}
+              {this.state.isVisible.vechile4 ? <Vechile PlanetDetails = {this.state.selected_planet_details["Destination 4"]}/> : ""}
             </div>
           </div>
         </MuiThemeProvider>
