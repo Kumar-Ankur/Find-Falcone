@@ -1,9 +1,10 @@
-import React, { Component, Fragment } from "react";
-
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Planet from "../container/Planet";
 import Navbar from "./Navbar";
 import Time from "../container/Time";
 import Footer from "../container/Footer";
+
 
 class FindFalcone extends Component {
   render() {
@@ -13,11 +14,13 @@ class FindFalcone extends Component {
         <Time />
         <Planet />
         <section className="section-btn">
-          <a href="#" className="navbtn navbtn--animated navbtn--white">
-            Ready to find??
+          <Link to="/Result">
+            <a href="#" className="navbtn navbtn--animated navbtn--white">
+              Ready to find??
           </a>
-          
+          </Link>
         </section>
+
         <Footer />
       </div>
     );
