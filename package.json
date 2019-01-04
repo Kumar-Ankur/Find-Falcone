@@ -16,6 +16,7 @@
   "author": "Ankur",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "eslint": "^5.10.0",
     "intro.js": "^2.9.3",
     "intro.js-react": "^0.2.0",
@@ -24,11 +25,15 @@
     "react": "^16.6.3",
     "react-addons-transition-group": "^15.6.2",
     "react-dom": "^16.6.3",
-    "react-router-dom": "^4.3.1"
+    "react-redux": "^6.0.0",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-saga": "^0.16.2"
   },
   "devDependencies": {
     "@babel/core": "^7.2.0",
     "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
     "babel-core": "^6.26.3",

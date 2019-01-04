@@ -5,7 +5,15 @@ import Navbar from "./Navbar";
 import Time from "../container/Time";
 import Footer from "../container/Footer";
 
+import { connect } from "react-redux";
+import * as actions from "../store/actions";
+
 class FindFalcone extends Component {
+
+  componentDidMount() {
+    this.props.loadVechileDetail();
+  }
+
   render() {
     return (
       <div className="section-falcone">
@@ -24,4 +32,14 @@ class FindFalcone extends Component {
   }
 }
 
-export default FindFalcone;
+const mapDispatchToProps = dispatch => {
+  return {
+    loadVechileDetail: ()  => dispatch(actions.loadVechileDetails())
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(FindFalcone);
+

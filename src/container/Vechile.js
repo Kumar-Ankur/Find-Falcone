@@ -1,7 +1,9 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { RadioButton, RadioButtonGroup } from "material-ui/RadioButton";
-import Footer from "./Footer";
+
+import { connect } from "react-redux";
+import * as actions from "../store/actions";
 
 const styles = {
   block: {
@@ -28,9 +30,7 @@ class Vechile extends Component {
   }
 
   componentDidMount() {
-    fetch("https://findfalcone.herokuapp.com/vehicles")
-      .then(vechile => vechile.json())
-      .then(vechile => this.setState({ vechile_list: vechile }));
+    
   }
 
   componentWillReceiveProps(nextProps) {
@@ -51,11 +51,8 @@ class Vechile extends Component {
   };
 
   render() {
-    const renderVechile = this.state.vechile_list.map(vech => {
-      if (
-        this.state.PlanetDetails.distance >
-        vech.max_distance
-      ) {
+    const renderVechile = this.props.vechileDetail.map(vech => {
+      if (this.state.PlanetDetails.distance > vech.max_distance) {
         return (
           <RadioButton
             value={`${vech.name}`}
@@ -81,7 +78,7 @@ class Vechile extends Component {
           <RadioButtonGroup
             name="shipSpeed"
             defaultSelected="not_light"
-            onChange={(event,value) =>
+            onChange={(event, value) =>
               this.vechileSelected(
                 value,
                 this.state.PlanetDetails,
@@ -96,5 +93,11 @@ class Vechile extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    vechileDetail: state.vechile
+  };
+};
 
-export default Vechile;
+
+export default connect(mapStateToProps)(Vechile);
