@@ -1,0 +1,26 @@
+.vechile {
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    background-color: $color-grey-light-1;
+
+    &__1 {
+        left: 5rem;
+        position: absolute
+    }
+
+    &__2 {
+        left: 35rem;
+        position: absolute
+    }
+
+    &__3 {
+        right: 35rem;
+        position: absolute
+    }
+
+    &__4 {
+        right: 10rem;
+        position: absolute
+    }
+}
