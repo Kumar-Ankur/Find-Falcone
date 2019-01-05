@@ -34,6 +34,25 @@
     -webkit-background-clip: text;
     color: transparent;
   }
+
+  &__error {
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    position: absolute;
+    bottom: 12rem;
+    left: 30%;
+    font-size: 1.8rem;
+    // color: $color-white;
+    // background-color: red;
+
+    background-image: linear-gradient(
+      to right,
+      red,
+      darkred
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+  }
 }
 
 .section-vechile {

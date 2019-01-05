@@ -1,44 +1,54 @@
 import React, { Component, Fragment } from "react";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import { RadioButton, RadioButtonGroup } from "material-ui/RadioButton";
-import Footer from "./Footer";
-
-const styles = {
-  block: {
-    maxWidth: 250,
-    paddingTop: 50
-  },
-  radioButton: {
-    marginBottom: 16,
-    fontSize: "15px",
-    marginTop: "40px"
-  }
-};
 
 class Vechile extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      vechile_list: [],
+      vechile_data: this.props.vechile_data,
+      remaining_vechile: this.props.remaining_vechile,
       PlanetDetails: this.props.PlanetDetails,
-      vechile_name: "",
-      selectedVechile: []
+      selectedVechile: {
+        "Destination 1": {
+          name: "",
+          total_no: 0,
+          max_distance: 0,
+          speed: 0
+        },
+        "Destination 2": {
+          name: "",
+          total_no: 0,
+          max_distance: 0,
+          speed: 0
+        },
+        "Destination 3": {
+          name: "",
+          total_no: 0,
+          max_distance: 0,
+          speed: 0
+        },
+        "Destination 4": {
+          name: "",
+          total_no: 0,
+          max_distance: 0,
+          speed: 0
+        }
+      },
+      isVisible: this.props.isVisible
     };
   }
 
-  componentDidMount() {
-    fetch("https://findfalcone.herokuapp.com/vehicles")
-      .then(vechile => vechile.json())
-      .then(vechile => this.setState({ vechile_list: vechile }));
-  }
-
   componentWillReceiveProps(nextProps) {
-    this.setState({ PlanetDetails: nextProps.PlanetDetails });
+    this.setState({
+      isVisible: nextProps.isVisible,
+      vechile_data: nextProps.vechile_data,
+      remaining_vechile: nextProps.remaining_vechile,
+      vechile_data: nextProps.vechile_data
+    });
   }
 
-  filteredData = (value, vechileDetails) => {
-    let selectedVechile = vechileDetails.filter(checkedVechile => {
+  filteredData = (value, remainingVechileDetails) => {
+    let selectedVechile = remainingVechileDetails.filter(checkedVechile => {
       if (checkedVechile.name === value) {
         return checkedVechile;
       }
@@ -46,52 +56,354 @@ class Vechile extends Component {
     return selectedVechile;
   };
 
-  vechileSelected = (value, PlanetDetails, vechileDetails) => {
-    console.log(value, PlanetDetails, selectedVechile, vechileDetails);
+  vechileSelected = (event, Destination) => {
+    let filteredVechileDetail = this.filteredData(
+      event.target.value,
+      this.state.remaining_vechile
+    );
+
+    let previousData = "";
+    switch (Destination) {
+      case "Destination 1":
+        if (this.state.selectedVechile[Destination].name !== "") {
+          previousData = this.state.selectedVechile[Destination].name;
+          this.setState(
+            {
+              selectedVechile: {
+                ...this.state.selectedVechile,
+                ...{
+                  "Destination 1": {
+                    name: filteredVechileDetail[0].name,
+                    total_no: 1,
+                    max_distance: filteredVechileDetail[0].max_distance,
+                    speed: filteredVechileDetail[0].speed
+                  }
+                }
+              }
+            },
+            () => {
+              this.remainingVechile(
+                this.state.vechile_data,
+                this.state.remaining_vechile,
+                this.state.selectedVechile,
+                Destination,
+                previousData
+              );
+            }
+          );
+        } else {
+          this.setState(
+            {
+              selectedVechile: {
+                ...this.state.selectedVechile,
+                ...{
+                  "Destination 1": {
+                    name: filteredVechileDetail[0].name,
+                    total_no: 1,
+                    max_distance: filteredVechileDetail[0].max_distance,
+                    speed: filteredVechileDetail[0].speed
+                  }
+                }
+              }
+            },
+            () => {
+              this.remainingVechile(
+                this.state.vechile_data,
+                this.state.remaining_vechile,
+                this.state.selectedVechile,
+                Destination,
+                previousData
+              );
+            }
+          );
+        }
+
+        break;
+
+      case "Destination 2":
+        if (this.state.selectedVechile[Destination].name !== "") {
+          previousData = this.state.selectedVechile[Destination].name;
+          this.setState(
+            {
+              selectedVechile: {
+                ...this.state.selectedVechile,
+                ...{
+                  "Destination 2": {
+                    name: filteredVechileDetail[0].name,
+                    total_no: 1,
+                    max_distance: filteredVechileDetail[0].max_distance,
+                    speed: filteredVechileDetail[0].speed
+                  }
+                }
+              }
+            },
+            () => {
+              this.remainingVechile(
+                this.state.vechile_data,
+                this.state.remaining_vechile,
+                this.state.selectedVechile,
+                Destination,
+                previousData
+              );
+            }
+          );
+        } else {
+          this.setState(
+            {
+              selectedVechile: {
+                ...this.state.selectedVechile,
+                ...{
+                  "Destination 2": {
+                    name: filteredVechileDetail[0].name,
+                    total_no: 1,
+                    max_distance: filteredVechileDetail[0].max_distance,
+                    speed: filteredVechileDetail[0].speed
+                  }
+                }
+              }
+            },
+            () => {
+              this.remainingVechile(
+                this.state.vechile_data,
+                this.state.remaining_vechile,
+                this.state.selectedVechile,
+                Destination,
+                previousData
+              );
+            }
+          );
+        }
+
+        break;
+
+      case "Destination 3":
+        if (this.state.selectedVechile[Destination].name !== "") {
+          previousData = this.state.selectedVechile[Destination].name;
+          this.setState(
+            {
+              selectedVechile: {
+                ...this.state.selectedVechile,
+                ...{
+                  "Destination 3": {
+                    name: filteredVechileDetail[0].name,
+                    total_no: 1,
+                    max_distance: filteredVechileDetail[0].max_distance,
+                    speed: filteredVechileDetail[0].speed
+                  }
+                }
+              }
+            },
+            () => {
+              this.remainingVechile(
+                this.state.vechile_data,
+                this.state.remaining_vechile,
+                this.state.selectedVechile,
+                Destination,
+                previousData
+              );
+            }
+          );
+        } else {
+          this.setState(
+            {
+              selectedVechile: {
+                ...this.state.selectedVechile,
+                ...{
+                  "Destination 3": {
+                    name: filteredVechileDetail[0].name,
+                    total_no: 1,
+                    max_distance: filteredVechileDetail[0].max_distance,
+                    speed: filteredVechileDetail[0].speed
+                  }
+                }
+              }
+            },
+            () => {
+              this.remainingVechile(
+                this.state.vechile_data,
+                this.state.remaining_vechile,
+                this.state.selectedVechile,
+                Destination,
+                previousData
+              );
+            }
+          );
+        }
+
+        break;
+
+      case "Destination 4":
+        if (this.state.selectedVechile[Destination].name !== "") {
+          previousData = this.state.selectedVechile[Destination].name;
+          this.setState(
+            {
+              selectedVechile: {
+                ...this.state.selectedVechile,
+                ...{
+                  "Destination 4": {
+                    name: filteredVechileDetail[0].name,
+                    total_no: 1,
+                    max_distance: filteredVechileDetail[0].max_distance,
+                    speed: filteredVechileDetail[0].speed
+                  }
+                }
+              }
+            },
+            () => {
+              this.remainingVechile(
+                this.state.vechile_data,
+                this.state.remaining_vechile,
+                this.state.selectedVechile,
+                Destination,
+                previousData
+              );
+            }
+          );
+        } else {
+          this.setState(
+            {
+              selectedVechile: {
+                ...this.state.selectedVechile,
+                ...{
+                  "Destination 4": {
+                    name: filteredVechileDetail[0].name,
+                    total_no: 1,
+                    max_distance: filteredVechileDetail[0].max_distance,
+                    speed: filteredVechileDetail[0].speed
+                  }
+                }
+              }
+            },
+            () => {
+              this.remainingVechile(
+                this.state.vechile_data,
+                this.state.remaining_vechile,
+                this.state.selectedVechile,
+                Destination,
+                previousData
+              );
+            }
+          );
+        }
+
+        break;
+
+      default:
+        this.setState({
+          selectedVechile: {
+            ...this.state.selectedVechile
+          }
+        });
+        break;
+    }
   };
 
-  render() {
-    const renderVechile = this.state.vechile_list.map(vech => {
+  remainingVechile = (
+    vechileList,
+    remainingVechileList,
+    selectedVechileList,
+    Destination,
+    previousData
+  ) => {
+    if (previousData === "") {
+      remainingVechileList.filter(vechile => {
+        if (vechile.name === selectedVechileList[Destination].name) {
+          vechile.total_no -= 1;
+        }
+      });
+    } else {
+      remainingVechileList.filter(vechile => {
+        if (vechile.name === selectedVechileList[Destination].name) {
+          vechile.total_no -= 1;
+        }
+        if (vechile.name === previousData) {
+          vechile.total_no += 1;
+        }
+      });
+    }
+    this.setState({ remaining_vechile: remainingVechileList });
+  };
+
+  renderVechile = Destination =>
+    this.state.remaining_vechile.map(vech => {
       if (
-        this.state.PlanetDetails.distance >
-        vech.max_distance
+        this.state.PlanetDetails[Destination].distance > vech.max_distance ||
+        vech.total_no === 0
       ) {
         return (
-          <RadioButton
-            value={`${vech.name}`}
-            label={`${vech.name} (${vech.total_no})`}
-            style={styles.radioButton}
-            disabled={true}
-          />
+          <div className="radio section-radio" key={vech.name}>
+            <label>
+              <input
+                type="radio"
+                name="optradio"
+                value={vech.name}
+                onChange={event => this.vechileSelected(event, Destination)}
+                disabled
+              />
+              {`${vech.name} (${vech.total_no})`}
+            </label>
+          </div>
         );
       } else {
         return (
-          <RadioButton
-            value={`${vech.name}`}
-            label={`${vech.name} (${vech.total_no})`}
-            style={styles.radioButton}
-          />
+          <div className="radio section-radio" key={vech.name}>
+            <label>
+              <input
+                type="radio"
+                name="optradio"
+                value={vech.name}
+                onChange={event => this.vechileSelected(event, Destination)}
+              />
+              {`${vech.name} (${vech.total_no})`}
+            </label>
+          </div>
         );
       }
     });
 
+  render() {
     return (
       <div className="section-vechile">
-        <MuiThemeProvider>
-          <RadioButtonGroup
-            name="shipSpeed"
-            defaultSelected="not_light"
-            onChange={(event,value) =>
-              this.vechileSelected(
-                value,
-                this.state.PlanetDetails,
-                this.state.vechile_list
-              )
-            }
-          >
-            {renderVechile}
-          </RadioButtonGroup>
-        </MuiThemeProvider>
+        <form>
+          {this.state.isVisible.vechile1 ? (
+            <div className="col-1-of-4 vechile vechile__1">
+              {" "}
+              {this.renderVechile("Destination 1")}{" "}
+            </div>
+          ) : (
+            ""
+          )}
+        </form>
+        <form>
+          {this.state.isVisible.vechile2 ? (
+            <div className="col-1-of-4 vechile vechile__2">
+              {" "}
+              {this.renderVechile("Destination 2")}{" "}
+            </div>
+          ) : (
+            ""
+          )}
+        </form>
+        <form>
+          {this.state.isVisible.vechile3 ? (
+            <div className="col-1-of-4 vechile vechile__3">
+              {" "}
+              {this.renderVechile("Destination 3")}{" "}
+            </div>
+          ) : (
+            ""
+          )}
+        </form>
+        <form>
+          {this.state.isVisible.vechile4 ? (
+            <div className="col-1-of-4 vechile vechile__4">
+              {" "}
+              {this.renderVechile("Destination 4")}{" "}
+            </div>
+          ) : (
+            ""
+          )}
+        </form>
       </div>
     );
   }

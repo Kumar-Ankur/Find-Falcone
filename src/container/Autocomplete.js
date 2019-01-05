@@ -12,6 +12,8 @@ class AutoCompleteList extends Component {
     this.state = {
       planet: this.props.name,
       selected_planet: {},
+      vechile_data: [],
+      remaining_vechile: [],
       remaining_planet: this.props.name,
       planetList: this.props.planetList,
       destination_array: [
@@ -49,6 +51,14 @@ class AutoCompleteList extends Component {
         }
       }
     };
+  }
+
+  componentDidMount() {
+    fetch("https://findfalcone.herokuapp.com/vehicles")
+      .then(vechile => vechile.json())
+      .then(vechile =>
+        this.setState({ vechile_data: vechile, remaining_vechile: vechile })
+      );
   }
 
   componentWillReceiveProps(nextProps) {
@@ -276,23 +286,11 @@ class AutoCompleteList extends Component {
       <div>
         <MuiThemeProvider>
           {planetDropDown}
-          <div className="row">
-            <div className="col-1-of-4 vechile vechile__1">
-              {" "}
-              {this.state.isVisible.vechile1 ? <Vechile PlanetDetails = {this.state.selected_planet_details["Destination 1"]}/> : ""}
-            </div>
-            <div className="col-1-of-4 vechile vechile__2">
-              {" "}
-              {this.state.isVisible.vechile2 ? <Vechile PlanetDetails = {this.state.selected_planet_details["Destination 2"]}/> : ""}
-            </div>
-            <div className="col-1-of-4 vechile vechile__3">
-              {this.state.isVisible.vechile3 ? <Vechile PlanetDetails = {this.state.selected_planet_details["Destination 3"]}/> : ""}
-            </div>
-            <div className="col-1-of-4 vechile vechile__4">
-              {" "}
-              {this.state.isVisible.vechile4 ? <Vechile PlanetDetails = {this.state.selected_planet_details["Destination 4"]}/> : ""}
-            </div>
-          </div>
+          <Vechile 
+          PlanetDetails = {this.state.selected_planet_details} 
+          isVisible = {this.state.isVisible}
+          vechile_data = {this.state.vechile_data}
+          remaining_vechile = {this.state.remaining_vechile}/>
         </MuiThemeProvider>
         <DistanceFromLengaburu
           distanceCovered={this.state.selected_planet_details}
