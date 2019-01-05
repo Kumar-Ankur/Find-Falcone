@@ -267,7 +267,6 @@ class Vechile extends Component {
             },
             () => {
               this.remainingVechile(
-                this.state.vechile_data,
                 this.state.remaining_vechile,
                 this.state.selectedVechile,
                 Destination,
@@ -330,7 +329,7 @@ class Vechile extends Component {
                 onChange={event => this.vechileSelected(event, Destination)}
                 disabled
               />
-              {`${vech.name} (${vech.total_no})`}
+              <span className="section-radio__disabled">{`${vech.name} (${vech.total_no})`}</span>
             </label>
           </div>
         );
@@ -344,7 +343,7 @@ class Vechile extends Component {
                 value={vech.name}
                 onChange={event => this.vechileSelected(event, Destination)}
               />
-              {`${vech.name} (${vech.total_no})`}
+              <span className="section-radio__enabled">{`${vech.name} (${vech.total_no})`}</span>
             </label>
           </div>
         );

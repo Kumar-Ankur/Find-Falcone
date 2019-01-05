@@ -30,4 +30,15 @@
     margin-top: 3rem;
     letter-spacing: .1rem;
     font-weight: 600;
+
+    &__enabled {
+        margin-left: 2rem;
+        background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    &__disabled {
+        margin-left: 2rem
+    }
 }
