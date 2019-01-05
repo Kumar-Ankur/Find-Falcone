@@ -104,3 +104,54 @@
       transform: translateY(0)
     }
   }
+
+  @keyframes logoAnimate {
+    0%{
+      opacity: 0;
+      transform: translateY(80rem)
+    }
+
+    80% {
+      opacity: 1;
+      transform: translateY(-3rem)
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0)
+    }
+  }
+
+  @keyframes spinnerAnimation {
+    0%{
+      opacity: 0.5;
+      transform: rotate(0deg)
+    }
+
+    16% {
+      transform: rotate(60deg);
+      opacity: 0.8;
+    }
+
+    34%{
+      transform: rotate(120deg);
+      opacity: 1;
+    }
+
+    49% {
+      transform: rotate(180deg);
+      opacity: 1;
+    }
+    65%{
+      transform: rotate(240deg);
+      opacity: 1;
+    }
+    81%{
+      opacity: 1;
+      transform: rotate(300deg)
+    }
+    100%{
+      opacity: 1;
+      transform: rotate(360deg)
+    }
+  }
