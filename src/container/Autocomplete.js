@@ -289,7 +289,6 @@ class AutoCompleteList extends Component {
           <Vechile 
           PlanetDetails = {this.state.selected_planet_details} 
           isVisible = {this.state.isVisible}
-          vechile_data = {this.state.vechile_data}
           remaining_vechile = {this.state.remaining_vechile}/>
         </MuiThemeProvider>
         <DistanceFromLengaburu

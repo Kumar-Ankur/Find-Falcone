@@ -5,7 +5,6 @@ class Vechile extends Component {
     super(props);
 
     this.state = {
-      vechile_data: this.props.vechile_data,
       remaining_vechile: this.props.remaining_vechile,
       PlanetDetails: this.props.PlanetDetails,
       selectedVechile: {
@@ -41,9 +40,8 @@ class Vechile extends Component {
   componentWillReceiveProps(nextProps) {
     this.setState({
       isVisible: nextProps.isVisible,
-      vechile_data: nextProps.vechile_data,
-      remaining_vechile: nextProps.remaining_vechile,
-      vechile_data: nextProps.vechile_data
+      PlanetDetails: nextProps.PlanetDetails,
+      remaining_vechile: nextProps.remaining_vechile
     });
   }
 
@@ -83,7 +81,6 @@ class Vechile extends Component {
             },
             () => {
               this.remainingVechile(
-                this.state.vechile_data,
                 this.state.remaining_vechile,
                 this.state.selectedVechile,
                 Destination,
@@ -108,7 +105,6 @@ class Vechile extends Component {
             },
             () => {
               this.remainingVechile(
-                this.state.vechile_data,
                 this.state.remaining_vechile,
                 this.state.selectedVechile,
                 Destination,
@@ -139,7 +135,6 @@ class Vechile extends Component {
             },
             () => {
               this.remainingVechile(
-                this.state.vechile_data,
                 this.state.remaining_vechile,
                 this.state.selectedVechile,
                 Destination,
@@ -164,7 +159,6 @@ class Vechile extends Component {
             },
             () => {
               this.remainingVechile(
-                this.state.vechile_data,
                 this.state.remaining_vechile,
                 this.state.selectedVechile,
                 Destination,
@@ -195,7 +189,6 @@ class Vechile extends Component {
             },
             () => {
               this.remainingVechile(
-                this.state.vechile_data,
                 this.state.remaining_vechile,
                 this.state.selectedVechile,
                 Destination,
@@ -220,7 +213,6 @@ class Vechile extends Component {
             },
             () => {
               this.remainingVechile(
-                this.state.vechile_data,
                 this.state.remaining_vechile,
                 this.state.selectedVechile,
                 Destination,
@@ -251,7 +243,6 @@ class Vechile extends Component {
             },
             () => {
               this.remainingVechile(
-                this.state.vechile_data,
                 this.state.remaining_vechile,
                 this.state.selectedVechile,
                 Destination,
@@ -299,7 +290,6 @@ class Vechile extends Component {
   };
 
   remainingVechile = (
-    vechileList,
     remainingVechileList,
     selectedVechileList,
     Destination,
