@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import Time from "./Time";
 
 class Vechile extends Component {
   constructor(props) {
@@ -353,6 +354,7 @@ class Vechile extends Component {
   render() {
     return (
       <div className="section-vechile">
+       <Time selectedPlanet={this.state.PlanetDetails} selectedVechile={this.state.selectedVechile}/>
         <form>
           {this.state.isVisible.vechile1 ? (
             <div className="col-1-of-4 vechile vechile__1">

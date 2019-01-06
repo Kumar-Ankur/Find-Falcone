@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Planet from "../container/Planet";
 import Navbar from "./Navbar";
-import Time from "../container/Time";
 import Footer from "../container/Footer";
 
 
@@ -11,7 +10,6 @@ class FindFalcone extends Component {
     return (
       <div className="section-falcone">
         <Navbar />
-        <Time />
         <Planet />
         <section className="section-btn">
           <Link to="/Result">

@@ -80,13 +80,14 @@
     position: absolute;
     background-image: linear-gradient(
       to right,
+      
       $color-tertiary-light,
       $color-tertiary-dark
     );
     -webkit-background-clip: text;
     color: transparent;
     right: 12rem;
-    top: 8rem;
+    top: -22rem;
     animation: timeAnimation 2s;
   }
 }
