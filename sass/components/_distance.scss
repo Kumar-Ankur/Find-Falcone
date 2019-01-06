@@ -3,13 +3,13 @@
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   transition: animation 2s;
-  font-size: 0.9rem;
 
   &__1 {
     display: inline-block;
+    font-size: 1.3rem;
     position: absolute;
     left: 5rem;
-    top: -18rem;
+    top: -14rem;
     background-image: linear-gradient(
       to right,
       $color-tertiary-light,
@@ -22,9 +22,10 @@
 
   &__2 {
     display: inline-block;
+    font-size: 1.3rem;
     position: absolute;
     left: 35rem;
-    top: -18rem;
+    top: -14rem;
     background-image: linear-gradient(
       to right,
       $color-tertiary-light,
@@ -37,9 +38,10 @@
 
   &__3 {
     display: inline-block;
+    font-size: 1.3rem;
     position: absolute;
     left: 65rem;
-    top: -18rem;
+    top: -14rem;
     background-image: linear-gradient(
       to right,
       $color-tertiary-light,
@@ -52,9 +54,10 @@
 
   &__4 {
     display: inline-block;
+    font-size: 1.3rem;
     position: absolute;
     left: 97rem;
-    top: -18rem;
+    top: -14rem;
     background-image: linear-gradient(
       to right,
       $color-tertiary-light,
