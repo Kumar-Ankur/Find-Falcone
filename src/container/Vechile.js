@@ -63,7 +63,6 @@ class Vechile extends Component {
     let previousData = "";
     switch (Destination) {
       case "Destination 1":
-        if (this.state.selectedVechile[Destination].name !== "") {
           previousData = this.state.selectedVechile[Destination].name;
           this.setState(
             {
@@ -72,7 +71,7 @@ class Vechile extends Component {
                 ...{
                   "Destination 1": {
                     name: filteredVechileDetail[0].name,
-                    total_no: 1,
+                    total_no: filteredVechileDetail[0].total_no,
                     max_distance: filteredVechileDetail[0].max_distance,
                     speed: filteredVechileDetail[0].speed
                   }
@@ -88,36 +87,10 @@ class Vechile extends Component {
               );
             }
           );
-        } else {
-          this.setState(
-            {
-              selectedVechile: {
-                ...this.state.selectedVechile,
-                ...{
-                  "Destination 1": {
-                    name: filteredVechileDetail[0].name,
-                    total_no: 1,
-                    max_distance: filteredVechileDetail[0].max_distance,
-                    speed: filteredVechileDetail[0].speed
-                  }
-                }
-              }
-            },
-            () => {
-              this.remainingVechile(
-                this.state.remaining_vechile,
-                this.state.selectedVechile,
-                Destination,
-                previousData
-              );
-            }
-          );
-        }
 
         break;
 
       case "Destination 2":
-        if (this.state.selectedVechile[Destination].name !== "") {
           previousData = this.state.selectedVechile[Destination].name;
           this.setState(
             {
@@ -126,7 +99,7 @@ class Vechile extends Component {
                 ...{
                   "Destination 2": {
                     name: filteredVechileDetail[0].name,
-                    total_no: 1,
+                    total_no: filteredVechileDetail[0].total_no,
                     max_distance: filteredVechileDetail[0].max_distance,
                     speed: filteredVechileDetail[0].speed
                   }
@@ -142,36 +115,9 @@ class Vechile extends Component {
               );
             }
           );
-        } else {
-          this.setState(
-            {
-              selectedVechile: {
-                ...this.state.selectedVechile,
-                ...{
-                  "Destination 2": {
-                    name: filteredVechileDetail[0].name,
-                    total_no: 1,
-                    max_distance: filteredVechileDetail[0].max_distance,
-                    speed: filteredVechileDetail[0].speed
-                  }
-                }
-              }
-            },
-            () => {
-              this.remainingVechile(
-                this.state.remaining_vechile,
-                this.state.selectedVechile,
-                Destination,
-                previousData
-              );
-            }
-          );
-        }
-
         break;
 
       case "Destination 3":
-        if (this.state.selectedVechile[Destination].name !== "") {
           previousData = this.state.selectedVechile[Destination].name;
           this.setState(
             {
@@ -180,7 +126,7 @@ class Vechile extends Component {
                 ...{
                   "Destination 3": {
                     name: filteredVechileDetail[0].name,
-                    total_no: 1,
+                    total_no: filteredVechileDetail[0].total_no,
                     max_distance: filteredVechileDetail[0].max_distance,
                     speed: filteredVechileDetail[0].speed
                   }
@@ -196,36 +142,9 @@ class Vechile extends Component {
               );
             }
           );
-        } else {
-          this.setState(
-            {
-              selectedVechile: {
-                ...this.state.selectedVechile,
-                ...{
-                  "Destination 3": {
-                    name: filteredVechileDetail[0].name,
-                    total_no: 1,
-                    max_distance: filteredVechileDetail[0].max_distance,
-                    speed: filteredVechileDetail[0].speed
-                  }
-                }
-              }
-            },
-            () => {
-              this.remainingVechile(
-                this.state.remaining_vechile,
-                this.state.selectedVechile,
-                Destination,
-                previousData
-              );
-            }
-          );
-        }
-
         break;
 
       case "Destination 4":
-        if (this.state.selectedVechile[Destination].name !== "") {
           previousData = this.state.selectedVechile[Destination].name;
           this.setState(
             {
@@ -234,7 +153,7 @@ class Vechile extends Component {
                 ...{
                   "Destination 4": {
                     name: filteredVechileDetail[0].name,
-                    total_no: 1,
+                    total_no: filteredVechileDetail[0].total_no,
                     max_distance: filteredVechileDetail[0].max_distance,
                     speed: filteredVechileDetail[0].speed
                   }
@@ -250,31 +169,6 @@ class Vechile extends Component {
               );
             }
           );
-        } else {
-          this.setState(
-            {
-              selectedVechile: {
-                ...this.state.selectedVechile,
-                ...{
-                  "Destination 4": {
-                    name: filteredVechileDetail[0].name,
-                    total_no: 1,
-                    max_distance: filteredVechileDetail[0].max_distance,
-                    speed: filteredVechileDetail[0].speed
-                  }
-                }
-              }
-            },
-            () => {
-              this.remainingVechile(
-                this.state.remaining_vechile,
-                this.state.selectedVechile,
-                Destination,
-                previousData
-              );
-            }
-          );
-        }
 
         break;
 

@@ -36,7 +36,9 @@ class Planet extends Component {
         if (err.message === "Failed to fetch") {
           this.setState({ message: "Please check your network connection." });
         }
-        console.log(err);
+        else {
+          this.setState({ messgae: "Something went wrong, please try again after sometime."})
+        }
         throw new TypeError(err);
       });
   }

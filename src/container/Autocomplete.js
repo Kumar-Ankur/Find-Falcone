@@ -11,8 +11,21 @@ class AutoCompleteList extends Component {
 
     this.state = {
       planet: this.props.name,
+      searchText: {
+        "Destination 1": {
+          text: ""
+        },
+        "Destination 2": {
+          text: ""
+        },
+        "Destination 3": {
+          text: ""
+        },
+        "Destination 4": {
+          text: ""
+        }
+      },
       selected_planet: {},
-      vechile_data: [],
       remaining_vechile: [],
       remaining_planet: this.props.name,
       planetList: this.props.planetList,
@@ -58,7 +71,10 @@ class AutoCompleteList extends Component {
       .then(vechile => vechile.json())
       .then(vechile =>
         this.setState({ vechile_data: vechile, remaining_vechile: vechile })
-      );
+      )
+      .catch(error => {
+        throw new TypeError(error);
+      });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -77,6 +93,87 @@ class AutoCompleteList extends Component {
     });
   };
 
+  setPlanetDetails = (value, destination, vechile) => {
+    var distance_from_Lengaburu = this.FilteredPlanet(
+      this.state.planetList,
+      value
+    );
+    if (this.state.planet.includes(value)) {
+      var visible = { ...this.state.isVisible };
+      var selectedVechile = { ...this.state.selected_planet_details };
+      if (vechile === "vechile1") {
+        visible.vechile1 = true;
+        selectedVechile[destination] = {
+          name: value,
+          distance: distance_from_Lengaburu[0].distance,
+          destination: "Destination 1"
+        };
+      } else if (vechile === "vechile2") {
+        visible.vechile2 = true;
+        selectedVechile[destination] = {
+          name: value,
+          distance: distance_from_Lengaburu[0].distance,
+          destination: "Destination 2"
+        };
+      } else if (vechile === "vechile3") {
+        visible.vechile3 = true;
+        selectedVechile[destination] = {
+          name: value,
+          distance: distance_from_Lengaburu[0].distance,
+          destination: "Destination 3"
+        };
+      } else if (vechile === "vechile4") {
+        visible.vechile4 = true;
+        selectedVechile[destination] = {
+          name: value,
+          distance: distance_from_Lengaburu[0].distance,
+          destination: "Destination 4"
+        };
+      }
+
+      this.setState(vechile => ({
+        isVisible: visible,
+        selected_planet_details: selectedVechile
+      }));
+    } else {
+      var visible = { ...this.state.isVisible };
+      var selectedVechile = { ...this.state.selected_planet_details };
+      if (vechile === "vechile1") {
+        visible.vechile1 = false;
+        selectedVechile[destination] = {
+          name: "",
+          distance: 0,
+          destination: "Destination 1"
+        };
+      } else if (vechile === "vechile2") {
+        visible.vechile2 = false;
+        selectedVechile[destination] = {
+          name: "",
+          distance: 0,
+          destination: "Destination 2"
+        };
+      } else if (vechile === "vechile3") {
+        visible.vechile3 = false;
+        selectedVechile[destination] = {
+          name: "",
+          distance: 0,
+          destination: "Destination 3"
+        };
+      } else if (vechile === "vechile4") {
+        visible.vechile4 = false;
+        selectedVechile[destination] = {
+          name: "",
+          distance: 0,
+          destination: "Destination 4"
+        };
+      }
+      this.setState(vechile => ({
+        isVisible: visible,
+        selected_planet_details: selectedVechile
+      }));
+    }
+  };
+
   handleSearch(value, destination) {
     var distance_from_Lengaburu = this.FilteredPlanet(
       this.state.planetList,
@@ -89,159 +186,38 @@ class AutoCompleteList extends Component {
       planet_name => !selectedPlanet.includes(planet_name)
     );
     this.setState({ remaining_planet: difference_in_planet });
-    
+    let isVisibleKey = Object.keys(this.state.isVisible);
     switch (destination) {
       case "Destination 1":
-        if (this.state.planet.includes(value)) {
-          this.setState(prevState => ({
-            isVisible: {
-              ...prevState.isVisible,
-              vechile1: true
-            },
-            selected_planet_details: {
-              ...prevState.selected_planet_details,
-              ...{
-                "Destination 1": {
-                  name: value,
-                  distance: distance_from_Lengaburu[0].distance,
-                  destination: "Destination 1"
-                }
-              }
-            }
-          }));
-        } else {
-          this.setState(prevState => ({
-            isVisible: {
-              ...prevState.isVisible,
-              vechile1: false
-            },
-            selected_planet_details: {
-              ...prevState.selected_planet_details,
-              ...{
-                "Destination 1": {
-                  name: "",
-                  distance: 0,
-                  destination: "Destination 1"
-                }
-              }
-            }
-          }));
-        }
-
+        this.setState({ searchText: {
+          ...this.state.searchText,
+          ...{"Destination 1" : {text: value}}
+        }})
+        this.setPlanetDetails(value, "Destination 1", isVisibleKey[0]);
         break;
 
       case "Destination 2":
-        if (this.state.planet.includes(value)) {
-          this.setState(prevState => ({
-            isVisible: {
-              ...prevState.isVisible,
-              vechile2: true
-            },
-            selected_planet_details: {
-              ...prevState.selected_planet_details,
-              ...{
-                "Destination 2": {
-                  name: value,
-                  distance: distance_from_Lengaburu[0].distance,
-                  destination: "Destination 2"
-                }
-              }
-            }
-          }));
-        } else {
-          this.setState(prevState => ({
-            isVisible: {
-              ...prevState.isVisible,
-              vechile2: false
-            },
-            selected_planet_details: {
-              ...prevState.selected_planet_details,
-              ...{
-                "Destination 2": {
-                  name: "",
-                  distance: 0,
-                  destination: "Destination 2"
-                }
-              }
-            }
-          }));
-        }
+      this.setState({ searchText: {
+        ...this.state.searchText,
+        ...{"Destination 2" : {text: value}}
+      }})
+        this.setPlanetDetails(value, "Destination 2", isVisibleKey[1]);
         break;
 
       case "Destination 3":
-        if (this.state.planet.includes(value)) {
-          this.setState(prevState => ({
-            isVisible: {
-              ...prevState.isVisible,
-              vechile3: true
-            },
-            selected_planet_details: {
-              ...prevState.selected_planet_details,
-              ...{
-                "Destination 3": {
-                  name: value,
-                  distance: distance_from_Lengaburu[0].distance,
-                  destination: "Destination 3"
-                }
-              }
-            }
-          }));
-        } else {
-          this.setState(prevState => ({
-            isVisible: {
-              ...prevState.isVisible,
-              vechile3: false
-            },
-            selected_planet_details: {
-              ...prevState.selected_planet_details,
-              ...{
-                "Destination 3": {
-                  name: "",
-                  distance: 0,
-                  destination: "Destination 3"
-                }
-              }
-            }
-          }));
-        }
+      this.setState({ searchText: {
+        ...this.state.searchText,
+        ...{"Destination 3" : {text: value}}
+      }})
+        this.setPlanetDetails(value, "Destination 3", isVisibleKey[2]);
         break;
 
       case "Destination 4":
-        if (this.state.planet.includes(value)) {
-          this.setState(prevState => ({
-            isVisible: {
-              ...prevState.isVisible,
-              vechile4: true
-            },
-            selected_planet_details: {
-              ...prevState.selected_planet_details,
-              ...{
-                "Destination 4": {
-                  name: value,
-                  distance: distance_from_Lengaburu[0].distance,
-                  destination: "Destination 4"
-                }
-              }
-            }
-          }));
-        } else {
-          this.setState(prevState => ({
-            isVisible: {
-              ...prevState.isVisible,
-              vechile4: false
-            },
-            selected_planet_details: {
-              ...prevState.selected_planet_details,
-              ...{
-                "Destination 4": {
-                  name: "",
-                  distance: 0,
-                  destination: "Destination 4"
-                }
-              }
-            }
-          }));
-        }
+      this.setState({ searchText: {
+        ...this.state.searchText,
+        ...{"Destination 4" : {text: value}}
+      }})
+        this.setPlanetDetails(value, "Destination 4", isVisibleKey[3]);
         break;
 
       default:
@@ -257,7 +233,57 @@ class AutoCompleteList extends Component {
     }
   }
 
+  onResetPressed = () => {
+    this.setState({ 
+      selected_planet: {},
+      remaining_planet: this.props.name,
+      searchText: {
+        "Destination 1": {
+          text: ""
+        },
+        "Destination 2": {
+          text: ""
+        },
+        "Destination 3": {
+          text: ""
+        },
+        "Destination 4": {
+          text: ""
+        }
+      },
+      isVisible: {
+        vechile1: false,
+        vechile2: false,
+        vechile3: false,
+        vechile4: false
+      },
+      selected_planet_details: {
+        "Destination 1": {
+          name: "",
+          distance: 0,
+          destination: "Destination 1"
+        },
+        "Destination 2": {
+          name: "",
+          distance: 0,
+          destination: "Destination 2"
+        },
+        "Destination 3": {
+          name: "",
+          distance: 0,
+          destination: "Destination 3"
+        },
+        "Destination 4": {
+          name: "",
+          distance: 0,
+          destination: "Destination 4"
+        }
+      }
+    })
+  }
+
   render() {
+    console.log(this.state.searchText)
     const planetDropDown = this.state.destination_array.map(
       (destination, key) => {
         return (
@@ -266,6 +292,7 @@ class AutoCompleteList extends Component {
               key={destination}
               floatingLabelText={destination}
               openOnFocus={true}
+              searchText= {this.state.searchText[destination].text}
               dataSource={this.state.remaining_planet}
               filter={(searchText, key) => true}
               listStyle={{
@@ -285,11 +312,15 @@ class AutoCompleteList extends Component {
     return (
       <div>
         <MuiThemeProvider>
+        <a href="#" className="reset navbar__text--separator navbtn navbtn--animated navbtn--white" onClick={this.onResetPressed}>
+              Reset
+            </a>
           {planetDropDown}
-          <Vechile 
-          PlanetDetails = {this.state.selected_planet_details} 
-          isVisible = {this.state.isVisible}
-          remaining_vechile = {this.state.remaining_vechile}/>
+          <Vechile
+            PlanetDetails={this.state.selected_planet_details}
+            isVisible={this.state.isVisible}
+            remaining_vechile={this.state.remaining_vechile}
+          />
         </MuiThemeProvider>
         <DistanceFromLengaburu
           distanceCovered={this.state.selected_planet_details}
