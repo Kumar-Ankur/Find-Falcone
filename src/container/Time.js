@@ -29,7 +29,6 @@ class Time extends Component {
     }
 
     render() {
-        console.log(this.state.total_time)
         return (
             <section className="section-time">
                 <h3 className="section-time__heading">Time Taken: {this.state.total_time}</h3>

@@ -11,6 +11,7 @@ class AutoCompleteList extends Component {
 
     this.state = {
       planet: this.props.name,
+      resetFlag: false,
       searchText: {
         "Destination 1": {
           text: ""
@@ -45,22 +46,26 @@ class AutoCompleteList extends Component {
         "Destination 1": {
           name: "",
           distance: 0,
-          destination: "Destination 1"
+          destination: "Destination 1",
+          reset: false
         },
         "Destination 2": {
           name: "",
           distance: 0,
-          destination: "Destination 2"
+          destination: "Destination 2",
+          reset: false
         },
         "Destination 3": {
           name: "",
           distance: 0,
-          destination: "Destination 3"
+          destination: "Destination 3",
+          reset: false
         },
         "Destination 4": {
           name: "",
           distance: 0,
-          destination: "Destination 4"
+          destination: "Destination 4",
+          reset: false
         }
       }
     };
@@ -70,7 +75,7 @@ class AutoCompleteList extends Component {
     fetch("https://findfalcone.herokuapp.com/vehicles")
       .then(vechile => vechile.json())
       .then(vechile =>
-        this.setState({ vechile_data: vechile, remaining_vechile: vechile })
+        this.setState({ vechile_data: vechile, remaining_vechile: vechile,reset: false })
       )
       .catch(error => {
         throw new TypeError(error);
@@ -106,28 +111,32 @@ class AutoCompleteList extends Component {
         selectedVechile[destination] = {
           name: value,
           distance: distance_from_Lengaburu[0].distance,
-          destination: "Destination 1"
+          destination: "Destination 1",
+          reset: false
         };
       } else if (vechile === "vechile2") {
         visible.vechile2 = true;
         selectedVechile[destination] = {
           name: value,
           distance: distance_from_Lengaburu[0].distance,
-          destination: "Destination 2"
+          destination: "Destination 2",
+          reset: false
         };
       } else if (vechile === "vechile3") {
         visible.vechile3 = true;
         selectedVechile[destination] = {
           name: value,
           distance: distance_from_Lengaburu[0].distance,
-          destination: "Destination 3"
+          destination: "Destination 3",
+          reset: false
         };
       } else if (vechile === "vechile4") {
         visible.vechile4 = true;
         selectedVechile[destination] = {
           name: value,
           distance: distance_from_Lengaburu[0].distance,
-          destination: "Destination 4"
+          destination: "Destination 4",
+          reset: false
         };
       }
 
@@ -143,28 +152,32 @@ class AutoCompleteList extends Component {
         selectedVechile[destination] = {
           name: "",
           distance: 0,
-          destination: "Destination 1"
+          destination: "Destination 1",
+          reset: true
         };
       } else if (vechile === "vechile2") {
         visible.vechile2 = false;
         selectedVechile[destination] = {
           name: "",
           distance: 0,
-          destination: "Destination 2"
+          destination: "Destination 2",
+          reset: true
         };
       } else if (vechile === "vechile3") {
         visible.vechile3 = false;
         selectedVechile[destination] = {
           name: "",
           distance: 0,
-          destination: "Destination 3"
+          destination: "Destination 3",
+          reset: true
         };
       } else if (vechile === "vechile4") {
         visible.vechile4 = false;
         selectedVechile[destination] = {
           name: "",
           distance: 0,
-          destination: "Destination 4"
+          destination: "Destination 4",
+          reset: true
         };
       }
       this.setState(vechile => ({
@@ -234,9 +247,11 @@ class AutoCompleteList extends Component {
   }
 
   onResetPressed = () => {
+    this.componentDidMount();
+    
     this.setState({ 
       selected_planet: {},
-      remaining_planet: this.props.name,
+      resetFlag: true,
       searchText: {
         "Destination 1": {
           text: ""
@@ -283,7 +298,6 @@ class AutoCompleteList extends Component {
   }
 
   render() {
-    console.log(this.state.searchText)
     const planetDropDown = this.state.destination_array.map(
       (destination, key) => {
         return (
@@ -320,6 +334,7 @@ class AutoCompleteList extends Component {
             PlanetDetails={this.state.selected_planet_details}
             isVisible={this.state.isVisible}
             remaining_vechile={this.state.remaining_vechile}
+            resetFlag = {this.state.resetFlag}
           />
         </MuiThemeProvider>
         <DistanceFromLengaburu

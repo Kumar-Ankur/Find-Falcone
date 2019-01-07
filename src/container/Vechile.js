@@ -7,6 +7,7 @@ class Vechile extends Component {
 
     this.state = {
       remaining_vechile: this.props.remaining_vechile,
+      resetFlag : this.props.resetFlag,
       PlanetDetails: this.props.PlanetDetails,
       selectedVechile: {
         "Destination 1": {
@@ -42,12 +43,41 @@ class Vechile extends Component {
     this.setState({
       isVisible: nextProps.isVisible,
       PlanetDetails: nextProps.PlanetDetails,
-      remaining_vechile: nextProps.remaining_vechile
-    });
+      remaining_vechile: nextProps.remaining_vechile,
+      resetFlag: nextProps.resetFlag
+    },() => {
+      if(this.state.resetFlag) {
+        this.setState({
+          selectedVechile: {
+            "Destination 1": {
+              name: "",
+              total_no: 0,
+              max_distance: 0,
+              speed: 0
+            },
+            "Destination 2": {
+              name: "",
+              total_no: 0,
+              max_distance: 0,
+              speed: 0
+            },
+            "Destination 3": {
+              name: "",
+              total_no: 0,
+              max_distance: 0,
+              speed: 0
+            },
+            "Destination 4": {
+              name: "",
+              total_no: 0,
+              max_distance: 0,
+              speed: 0
+            }
+          }
+        })
+      }
+    })
   }
-
-
-
 
   filteredData = (value, remainingVechileDetails) => {
     let selectedVechile = remainingVechileDetails.filter(checkedVechile => {
