@@ -46,6 +46,9 @@ class Vechile extends Component {
     });
   }
 
+
+
+
   filteredData = (value, remainingVechileDetails) => {
     let selectedVechile = remainingVechileDetails.filter(checkedVechile => {
       if (checkedVechile.name === value) {
@@ -55,122 +58,49 @@ class Vechile extends Component {
     return selectedVechile;
   };
 
-  vechileSelected = (event, Destination) => {
+  setVechileDetails = (event, Destination) => {
     let filteredVechileDetail = this.filteredData(
       event.target.value,
       this.state.remaining_vechile
     );
-
     let previousData = "";
+
+    previousData = this.state.selectedVechile[Destination].name;
+    let selectedVechileDetails = { ...this.state.selectedVechile }
+    selectedVechileDetails[Destination] = {
+      name: filteredVechileDetail[0].name,
+      total_no: filteredVechileDetail[0].total_no,
+      max_distance: filteredVechileDetail[0].max_distance,
+      speed: filteredVechileDetail[0].speed
+    }
+    this.setState({ selectedVechile: selectedVechileDetails }, () => {
+      this.remainingVechile(
+        this.state.remaining_vechile,
+        this.state.selectedVechile,
+        Destination,
+        previousData
+      );
+    }
+    );
+  }
+
+  vechileSelected = (event, Destination) => {
+
     switch (Destination) {
       case "Destination 1":
-          previousData = this.state.selectedVechile[Destination].name;
-          this.setState(
-            {
-              selectedVechile: {
-                ...this.state.selectedVechile,
-                ...{
-                  "Destination 1": {
-                    name: filteredVechileDetail[0].name,
-                    total_no: filteredVechileDetail[0].total_no,
-                    max_distance: filteredVechileDetail[0].max_distance,
-                    speed: filteredVechileDetail[0].speed
-                  }
-                }
-              }
-            },
-            () => {
-              this.remainingVechile(
-                this.state.remaining_vechile,
-                this.state.selectedVechile,
-                Destination,
-                previousData
-              );
-            }
-          );
-
+        this.setVechileDetails(event, Destination)
         break;
 
       case "Destination 2":
-          previousData = this.state.selectedVechile[Destination].name;
-          this.setState(
-            {
-              selectedVechile: {
-                ...this.state.selectedVechile,
-                ...{
-                  "Destination 2": {
-                    name: filteredVechileDetail[0].name,
-                    total_no: filteredVechileDetail[0].total_no,
-                    max_distance: filteredVechileDetail[0].max_distance,
-                    speed: filteredVechileDetail[0].speed
-                  }
-                }
-              }
-            },
-            () => {
-              this.remainingVechile(
-                this.state.remaining_vechile,
-                this.state.selectedVechile,
-                Destination,
-                previousData
-              );
-            }
-          );
+        this.setVechileDetails(event, Destination)
         break;
 
       case "Destination 3":
-          previousData = this.state.selectedVechile[Destination].name;
-          this.setState(
-            {
-              selectedVechile: {
-                ...this.state.selectedVechile,
-                ...{
-                  "Destination 3": {
-                    name: filteredVechileDetail[0].name,
-                    total_no: filteredVechileDetail[0].total_no,
-                    max_distance: filteredVechileDetail[0].max_distance,
-                    speed: filteredVechileDetail[0].speed
-                  }
-                }
-              }
-            },
-            () => {
-              this.remainingVechile(
-                this.state.remaining_vechile,
-                this.state.selectedVechile,
-                Destination,
-                previousData
-              );
-            }
-          );
+        this.setVechileDetails(event, Destination)
         break;
 
       case "Destination 4":
-          previousData = this.state.selectedVechile[Destination].name;
-          this.setState(
-            {
-              selectedVechile: {
-                ...this.state.selectedVechile,
-                ...{
-                  "Destination 4": {
-                    name: filteredVechileDetail[0].name,
-                    total_no: filteredVechileDetail[0].total_no,
-                    max_distance: filteredVechileDetail[0].max_distance,
-                    speed: filteredVechileDetail[0].speed
-                  }
-                }
-              }
-            },
-            () => {
-              this.remainingVechile(
-                this.state.remaining_vechile,
-                this.state.selectedVechile,
-                Destination,
-                previousData
-              );
-            }
-          );
-
+        this.setVechileDetails(event, Destination)
         break;
 
       default:
@@ -248,7 +178,7 @@ class Vechile extends Component {
   render() {
     return (
       <div className="section-vechile">
-       <Time selectedPlanet={this.state.PlanetDetails} selectedVechile={this.state.selectedVechile}/>
+        <Time selectedPlanet={this.state.PlanetDetails} selectedVechile={this.state.selectedVechile} />
         <form>
           {this.state.isVisible.vechile1 ? (
             <div className="col-1-of-4 vechile vechile__1">
@@ -256,8 +186,8 @@ class Vechile extends Component {
               {this.renderVechile("Destination 1")}{" "}
             </div>
           ) : (
-            ""
-          )}
+              ""
+            )}
         </form>
         <form>
           {this.state.isVisible.vechile2 ? (
@@ -266,8 +196,8 @@ class Vechile extends Component {
               {this.renderVechile("Destination 2")}{" "}
             </div>
           ) : (
-            ""
-          )}
+              ""
+            )}
         </form>
         <form>
           {this.state.isVisible.vechile3 ? (
@@ -276,8 +206,8 @@ class Vechile extends Component {
               {this.renderVechile("Destination 3")}{" "}
             </div>
           ) : (
-            ""
-          )}
+              ""
+            )}
         </form>
         <form>
           {this.state.isVisible.vechile4 ? (
@@ -286,8 +216,8 @@ class Vechile extends Component {
               {this.renderVechile("Destination 4")}{" "}
             </div>
           ) : (
-            ""
-          )}
+              ""
+            )}
         </form>
       </div>
     );
