@@ -44,7 +44,6 @@ class Planet extends Component {
   }
 
   render() {
-    console.log(this.state.message);
     return (
       <main>
         <section className="section-planet">

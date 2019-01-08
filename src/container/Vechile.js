@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import { Link } from "react-router-dom";
 import Time from "./Time";
 
 class Vechile extends Component {
@@ -8,6 +9,7 @@ class Vechile extends Component {
     this.state = {
       remaining_vechile: this.props.remaining_vechile,
       resetFlag : this.props.resetFlag,
+      isButtonVisible : false,
       PlanetDetails: this.props.PlanetDetails,
       selectedVechile: {
         "Destination 1": {
@@ -165,7 +167,16 @@ class Vechile extends Component {
         }
       });
     }
+
     this.setState({ remaining_vechile: remainingVechileList });
+
+    if(this.state.selectedVechile["Destination 1"].name !== "" && this.state.selectedVechile["Destination 2"].name !== ""
+    && this.state.selectedVechile["Destination 3"].name !== "" && this.state.selectedVechile["Destination 4"].name !== "") {
+      this.setState({ isButtonVisible: true })
+    } else {
+      this.setState({ isButtonVisible: false})
+    }
+    
   };
 
   renderVechile = Destination =>

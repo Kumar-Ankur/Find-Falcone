@@ -46,26 +46,22 @@ class AutoCompleteList extends Component {
         "Destination 1": {
           name: "",
           distance: 0,
-          destination: "Destination 1",
-          reset: false
+          destination: "Destination 1"
         },
         "Destination 2": {
           name: "",
           distance: 0,
-          destination: "Destination 2",
-          reset: false
+          destination: "Destination 2"
         },
         "Destination 3": {
           name: "",
           distance: 0,
-          destination: "Destination 3",
-          reset: false
+          destination: "Destination 3"
         },
         "Destination 4": {
           name: "",
           distance: 0,
-          destination: "Destination 4",
-          reset: false
+          destination: "Destination 4"
         }
       }
     };
@@ -75,7 +71,7 @@ class AutoCompleteList extends Component {
     fetch("https://findfalcone.herokuapp.com/vehicles")
       .then(vechile => vechile.json())
       .then(vechile =>
-        this.setState({ vechile_data: vechile, remaining_vechile: vechile,reset: false })
+        this.setState({ vechile_data: vechile, remaining_vechile: vechile })
       )
       .catch(error => {
         throw new TypeError(error);
@@ -111,32 +107,28 @@ class AutoCompleteList extends Component {
         selectedVechile[destination] = {
           name: value,
           distance: distance_from_Lengaburu[0].distance,
-          destination: "Destination 1",
-          reset: false
+          destination: "Destination 1"
         };
       } else if (vechile === "vechile2") {
         visible.vechile2 = true;
         selectedVechile[destination] = {
           name: value,
           distance: distance_from_Lengaburu[0].distance,
-          destination: "Destination 2",
-          reset: false
+          destination: "Destination 2"
         };
       } else if (vechile === "vechile3") {
         visible.vechile3 = true;
         selectedVechile[destination] = {
           name: value,
           distance: distance_from_Lengaburu[0].distance,
-          destination: "Destination 3",
-          reset: false
+          destination: "Destination 3"
         };
       } else if (vechile === "vechile4") {
         visible.vechile4 = true;
         selectedVechile[destination] = {
           name: value,
           distance: distance_from_Lengaburu[0].distance,
-          destination: "Destination 4",
-          reset: false
+          destination: "Destination 4"
         };
       }
 
@@ -152,32 +144,28 @@ class AutoCompleteList extends Component {
         selectedVechile[destination] = {
           name: "",
           distance: 0,
-          destination: "Destination 1",
-          reset: true
+          destination: "Destination 1"
         };
       } else if (vechile === "vechile2") {
         visible.vechile2 = false;
         selectedVechile[destination] = {
           name: "",
           distance: 0,
-          destination: "Destination 2",
-          reset: true
+          destination: "Destination 2"
         };
       } else if (vechile === "vechile3") {
         visible.vechile3 = false;
         selectedVechile[destination] = {
           name: "",
           distance: 0,
-          destination: "Destination 3",
-          reset: true
+          destination: "Destination 3"
         };
       } else if (vechile === "vechile4") {
         visible.vechile4 = false;
         selectedVechile[destination] = {
           name: "",
           distance: 0,
-          destination: "Destination 4",
-          reset: true
+          destination: "Destination 4"
         };
       }
       this.setState(vechile => ({
