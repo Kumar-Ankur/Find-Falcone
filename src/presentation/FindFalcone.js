@@ -11,7 +11,6 @@ class FindFalcone extends Component {
         <Navbar />
         <Planet />
         <section className="section-btn" />
-
         <Footer />
       </div>
     );

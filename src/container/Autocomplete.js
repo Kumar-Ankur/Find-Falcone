@@ -4,6 +4,7 @@ import DistanceFromLengaburu from "../presentation/DistanceFromLengaburu";
 
 import Autocomplete from "material-ui/AutoComplete";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import store from 'store';
 
 class AutoCompleteList extends Component {
   constructor(props) {
@@ -42,6 +43,7 @@ class AutoCompleteList extends Component {
         vechile3: false,
         vechile4: false
       },
+      message: "",
       selected_planet_details: {
         "Destination 1": {
           name: "",
@@ -68,15 +70,29 @@ class AutoCompleteList extends Component {
   }
 
   componentDidMount() {
-    fetch("https://findfalcone.herokuapp.com/vehicles")
+    if(store.get('vehicle_details')) {
+      this.setState({ vechile_data: store.get('vehicle_details'), remaining_vechile: store.get('vehicle_details'), message: ""})
+    }
+    else {
+      fetch("https://findfalcone.herokuapp.com/vehicles")
       .then(vechile => vechile.json())
-      .then(vechile =>
-        this.setState({ vechile_data: vechile, remaining_vechile: vechile })
-      )
-      .catch(error => {
-        throw new TypeError(error);
+      .then(vechile => {
+        store.set('vehicle_details',vechile)
+        this.setState({ vechile_data: store.get('vehicle_details'), remaining_vechile: store.get('vehicle_details'),message: "" })
+      })
+      .catch(err => {
+        if (err.message === "Failed to fetch") {
+          this.setState({ message: "Please check your network connection." });
+        } else {
+          this.setState({
+            messgae: "Something went wrong, please try again after sometime."
+          });
+        }
+        throw new TypeError(err);
       });
+    }
   }
+
 
   componentWillReceiveProps(nextProps) {
     this.setState({
@@ -235,7 +251,8 @@ class AutoCompleteList extends Component {
   }
 
   onResetPressed = () => {
-    this.componentDidMount();
+    let vechile = store.get('vehicle_details')
+    this.setState({ remaining_vechile: vechile })
     
     this.setState({ 
       selected_planet: {},
@@ -328,6 +345,7 @@ class AutoCompleteList extends Component {
         <DistanceFromLengaburu
           distanceCovered={this.state.selected_planet_details}
         />
+        <span className="section-planet__error">{this.state.message}</span>
       </div>
     );
   }

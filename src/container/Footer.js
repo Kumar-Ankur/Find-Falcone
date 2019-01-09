@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import store from 'store';
+
 import {
   Table,
   TableBody,
@@ -27,14 +29,37 @@ class Footer extends Component {
     this.state = {
       open: false,
       open1: false,
-      vehicle_details: []
+      vehicle_details: [],
+      message: ""
     };
   }
 
   componentDidMount() {
-    fetch("https://findfalcone.herokuapp.com/vehicles")
+    if(store.get('vehicle_details')) {
+      this.setState({ vehicle_details: store.get('vehicle_details'), message: ""})
+    }
+    else {
+      fetch("https://findfalcone.herokuapp.com/vehicles")
       .then(vechile => vechile.json())
-      .then(vechile => this.setState({ vehicle_details: vechile }));
+      .then(vechile => {
+        store.set('vehicle_details',vechile)
+        this.setState({ vehicle_details: vechile, message: "" })
+      })
+      .catch(err => {
+        if (err.message === "Failed to fetch") {
+          this.setState({ message: "Please check your network connection." });
+        } else {
+          this.setState({
+            messgae: "Something went wrong, please try again after sometime."
+          });
+        }
+        throw new TypeError(err);
+      });
+    }
+  }
+
+  componentWillUnmount() {
+    store.remove('vehicle_details')
   }
 
   handleOpen = (val) => {
@@ -125,6 +150,7 @@ class Footer extends Component {
             </Table>
           </Dialog>
         </MuiThemeProvider>
+        <span className="section-planet__error">{this.state.message}</span>
       </section>
     );
   }
