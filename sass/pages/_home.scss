@@ -24,7 +24,7 @@
     letter-spacing: 0.2rem;
     position: absolute;
     left: 5rem;
-    top: 8rem;
+    top: 11rem;
     font-size: 2.2rem;
     background-image: linear-gradient(
       to right,
@@ -87,7 +87,7 @@
     -webkit-background-clip: text;
     color: transparent;
     right: 12rem;
-    top: -22rem;
-    animation: timeAnimation 2s;
+    top: -20rem;
+    animation: timeAnimation 2s ease-in;
   }
 }
