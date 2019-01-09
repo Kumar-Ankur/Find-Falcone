@@ -4,7 +4,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 var WebpackBundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const htmlPlugin = new HtmlWebPackPlugin({
-    template: 'public/index.html',
+    template: './index.html',
     filename: 'index.html'
 });
 
