@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class Navbar extends Component {
@@ -6,12 +6,11 @@ class Navbar extends Component {
     return (
       <div className="navbar">
         <div className="navbar__text">
-            <a href="#" className="navbar__text--separator navbtn navbtn--animated navbtn--white">
-              Reset
-            </a>
-          
           <Link to="/">
-            <a href="#" className="navbar__text--separator navbtn navbtn--animated navbtn--white">
+            <a
+              href="#"
+              className="navbar__text--separator navbtn navbtn--animated navbtn--white"
+            >
               GeekTrust Home
             </a>
           </Link>

@@ -1,9 +1,8 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from 'react';
 
-import Planet from "../container/Planet";
-import Navbar from "./Navbar";
-import Time from "../container/Time";
-import Footer from "../container/Footer";
+import Planet from '../container/Planet';
+import Navbar from './Navbar';
+import Footer from '../container/Footer';
 
 import { connect } from "react-redux";
 import * as actions from "../store/actions";
@@ -18,14 +17,8 @@ class FindFalcone extends Component {
     return (
       <div className="section-falcone">
         <Navbar />
-        <Time />
         <Planet />
-        <section className="section-btn">
-          <a href="#" className="navbtn navbtn--animated navbtn--white">
-            Ready to find??
-          </a>
-          
-        </section>
+        <section className="section-btn" />
         <Footer />
       </div>
     );

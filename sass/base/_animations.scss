@@ -74,17 +74,17 @@
   @keyframes timeAnimation {
     0%{
       opacity: 0;
-      transform: translateX(30rem)
+      transform: translateY(2rem)
     }
 
     80% {
       opacity: 1;
-      transform: translateX(-5rem)
+      transform: translateY(-1rem)
     }
 
     100% {
       opacity: 1;
-      transform: translateX(0)
+      transform: translateY(0)
     }
   }
 
@@ -97,6 +97,23 @@
     80% {
       opacity: 1;
       transform: translateY(3rem)
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0)
+    }
+  }
+
+  @keyframes logoAnimate {
+    0%{
+      opacity: 0;
+      transform: translateY(80rem)
+    }
+
+    80% {
+      opacity: 1;
+      transform: translateY(-3rem)
     }
 
     100% {

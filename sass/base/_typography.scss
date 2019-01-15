@@ -17,6 +17,7 @@ body {
       font-weight: 400;
       letter-spacing: 5rem;
       display: block;
+      color: $color-white;
       margin-left: 3rem;
   
       animation: moveInLeft 1s ease-out;
@@ -27,7 +28,7 @@ body {
       font-weight: 700;
       letter-spacing: 1.3rem;
       display: block;
-  
+      color: $color-white;
       animation: moveInRight 1s ease-out;
     }
   }

@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Steps, Hints } from "intro.js-react";
-import "intro.js/introjs.css";
+import React, { Component } from 'react';
+import { Steps } from 'intro.js-react';
+import 'intro.js/introjs.css';
 
 class Coachmark extends Component {
   constructor(props) {
@@ -11,36 +11,36 @@ class Coachmark extends Component {
       initialStep: 0,
       steps: [
         {
-          element: ".test",
-          intro: "This is the title of the game."
+          element: '.test',
+          intro: 'This is the title of the game.'
         },
         {
-          element: ".header",
-          intro: "This is the heading section."
+          element: '.header',
+          intro: 'This is the heading section.'
         },
         {
-          element: ".header__logo-box",
-          intro: "King Shan Game Logo"
+          element: '.header__logo-box',
+          intro: 'King Shan Game Logo'
         },
         {
-          element: ".btn .btn--animated .btn--white",
-          intro: "Button to start the game."
+          element: '.btn .btn--animated .btn--white',
+          intro: 'Button to start the game.'
         },
         {
-          element: ".paragraph",
-          intro: "Description to show how to play the game"
+          element: '.paragraph',
+          intro: 'Description to show how to play the game'
         },
         {
-          element: ".composition__photo--p1",
-          intro: "Vechile send by King Shan to find Queen Falcone."
+          element: '.composition__photo--p1',
+          intro: 'Vechile send by King Shan to find Queen Falcone.'
         }
       ],
       hintsEnabled: false,
       hints: [
         {
-          element: ".paragraph",
-          hint: "Description to show how to play the game",
-          hintPosition: "middle-right"
+          element: '.paragraph',
+          hint: 'Description to show how to play the game',
+          hintPosition: 'middle-right'
         }
       ]
     };
@@ -51,13 +51,7 @@ class Coachmark extends Component {
   };
 
   render() {
-    const {
-      stepsEnabled,
-      steps,
-      initialStep,
-      hintsEnabled,
-      hints
-    } = this.state;
+    const { stepsEnabled, steps, initialStep } = this.state;
     return (
       <Steps
         enabled={stepsEnabled}
