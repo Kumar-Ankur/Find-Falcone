@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import AutocompleteList from "./Autocomplete";
-import store from "store";
+import React, { Component } from 'react';
+import AutocompleteList from './Autocomplete';
+import store from 'store';
 
 class Planet extends Component {
   constructor(props) {
@@ -9,18 +9,18 @@ class Planet extends Component {
     this.state = {
       planet_list: [],
       planet_name: [],
-      message: ""
+      message: ''
     };
   }
 
   componentDidMount() {
-    if (store.get("planet_details")) {
+    if (store.get('planet_details')) {
       this.setState({
-        planet_list: store.get("planet_details"),
-        message: "",
+        planet_list: store.get('planet_details'),
+        message: '',
         planet_name: Object.keys(
           store
-            .get("planet_details")
+            .get('planet_details')
             .map(res_name => res_name.name)
             .reduce((a, b) => {
               a[b] = 0;
@@ -29,16 +29,16 @@ class Planet extends Component {
         )
       });
     } else {
-      console.log("==========call planet API to fetch the data =============");
+      console.log('==========call planet API to fetch the data =============');
 
-      fetch("https://findfalcone.herokuapp.com/planets")
+      fetch('https://findfalcone.herokuapp.com/planets')
         .then(list => list.json())
         .then(list => {
-          console.log("********* Data Feched successfully ***********");
-          store.set('planet_details', list)
+          console.log('********* Data Feched successfully ***********');
+          store.set('planet_details', list);
           this.setState({
             planet_list: list,
-            message: "",
+            message: '',
             planet_name: Object.keys(
               list
                 .map(res_name => res_name.name)
@@ -50,11 +50,11 @@ class Planet extends Component {
           });
         })
         .catch(err => {
-          if (err.message === "Failed to fetch") {
-            this.setState({ message: "Please check your network connection." });
+          if (err.message === 'Failed to fetch') {
+            this.setState({ message: 'Please check your network connection.' });
           } else {
             this.setState({
-              messgae: "Something went wrong, please try again after sometime."
+              messgae: 'Something went wrong, please try again after sometime.'
             });
           }
           throw new TypeError(err);
@@ -63,7 +63,7 @@ class Planet extends Component {
   }
 
   componentWillUnmount() {
-    store.remove('planet_details')
+    store.remove('planet_details');
   }
 
   render() {

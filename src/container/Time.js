@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
+import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
 class Time extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class Time extends Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState(
       {
         selectedPlanet: nextProps.selectedPlanet,
@@ -42,15 +42,19 @@ class Time extends Component {
           </h3>
         </section>
 
-        {this.state.selectedVechile["Destination 1"].name !== "" &&
-        this.state.selectedVechile["Destination 2"].name !== "" &&
-        this.state.selectedVechile["Destination 3"].name !== "" &&
-        this.state.selectedVechile["Destination 4"].name !== "" ? (
+        {this.state.selectedVechile['Destination 1'].name !== '' &&
+        this.state.selectedVechile['Destination 2'].name !== '' &&
+        this.state.selectedVechile['Destination 3'].name !== '' &&
+        this.state.selectedVechile['Destination 4'].name !== '' ? (
           <section className="section-btn">
             <Link
               to={{
-                pathname: "/Result",
-                state: { total_time: this.state.total_time, selectedPlanet: this.state.selectedPlanet, selectedVechile: this.state.selectedVechile }
+                pathname: '/Result',
+                state: {
+                  total_time: this.state.total_time,
+                  selectedPlanet: this.state.selectedPlanet,
+                  selectedVechile: this.state.selectedVechile
+                }
               }}
             >
               <a href="#" className="navbtn navbtn--animated navbtn--white">
@@ -59,7 +63,7 @@ class Time extends Component {
             </Link>
           </section>
         ) : (
-          ""
+          ''
         )}
       </Fragment>
     );

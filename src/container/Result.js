@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-import Navbar from "../presentation/Navbar";
-import Logo from "../../img/Logo.png";
+import Navbar from '../presentation/Navbar';
+import Logo from '../../img/Logo.png';
 
 class Result extends Component {
   constructor() {
@@ -13,28 +13,32 @@ class Result extends Component {
     };
   }
   componentDidMount() {
-    let selectedPlanetArray = Object.values(this.props.location.state.selectedPlanet).map(planet => {
-        return planet.name
-    })
+    let selectedPlanetArray = Object.values(
+      this.props.location.state.selectedPlanet
+    ).map(planet => {
+      return planet.name;
+    });
 
-    let selectedVechileArray = Object.values(this.props.location.state.selectedVechile).map(planet => {
-        return planet.name
-    })
-    
-    console.log("==========call planet API to fetch the data =============");
-    fetch("https://findfalcone.herokuapp.com/token", {
-      method: "post",
+    let selectedVechileArray = Object.values(
+      this.props.location.state.selectedVechile
+    ).map(planet => {
+      return planet.name;
+    });
+
+    console.log('==========call planet API to fetch the data =============');
+    fetch('https://findfalcone.herokuapp.com/token', {
+      method: 'post',
       headers: {
-        Accept: "application/json"
+        Accept: 'application/json'
       }
     })
       .then(list => list.json())
       .then(result => {
-        fetch("https://findfalcone.herokuapp.com/find", {
-          method: "post",
+        fetch('https://findfalcone.herokuapp.com/find', {
+          method: 'post',
           headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
           },
           body: JSON.stringify({
             token: result.token,
@@ -50,8 +54,8 @@ class Result extends Component {
       });
   }
 
-  displayResult = (time) => {
-    if (this.state.result.status === "success") {
+  displayResult = time => {
+    if (this.state.result.status === 'success') {
       return (
         <div className="section-success">
           <h1 className="section-success__heading">
@@ -64,7 +68,7 @@ class Result extends Component {
           </h1>
         </div>
       );
-    } else if (this.state.result.status === "false") {
+    } else if (this.state.result.status === 'false') {
       return (
         <div className="section-success">
           <h1 className="section-success__heading">

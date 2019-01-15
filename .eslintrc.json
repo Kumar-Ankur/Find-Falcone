@@ -13,10 +13,8 @@
         "react"
     ],
     "rules": {
-        "indent": [
-            "error",
-            "tab"
-        ],
+        "react/prop-types": 0,
+        "no-mixed-spaces-and-tabs": 0,
         "linebreak-style": [
             "error",
             "unix"
@@ -31,7 +29,11 @@
         ],
         "no-unused-expressions": "warn",
         "no-useless-concat": "warn",
-        "block-scoped-var": "error",
-        "consistent-return": "error"
+        "block-scoped-var": 0,
+        "consistent-return": 0,
+        "no-console": 0,
+        "react/jsx-key": 0,
+        "react/no-unescaped-entities": 0,
+        "react/no-direct-mutation-state": 0
     }
 }

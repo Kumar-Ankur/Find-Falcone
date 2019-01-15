@@ -8,7 +8,7 @@
     "dev": "webpack-dev-server --progress --config ./webpack.dev.config.js --open --hot",
     "start": "node server.js",
     "analyze": "webpack-bundle-analyzer --mode server --port 4000 dist/stats.json",
-    "lint": "eslint src/**/*.* --ext src/**/*.css --ext src/**/*.png --ext src/**/*.otf --fix",
+    "lint": "eslint src/**/*.* --ext src/**/*.css --ext src/**/*.png --ext src/**/*.otf",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ankur",
@@ -19,6 +19,7 @@
     "intro.js-react": "^0.2.0",
     "material-ui": "^0.20.2",
     "path": "^0.12.7",
+    "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-addons-transition-group": "^15.6.2",
     "react-dom": "^16.6.3",
