@@ -11,7 +11,7 @@ module.exports = merge(webpackConfig, {
 
   output: {
     path: path.join(__dirname, "dist"),
-    filename: "[name].[hash].js",
+    filename: "bundle.js",
     chunkFilename: "[name].[hash].js"
   },
 

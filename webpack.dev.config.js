@@ -14,10 +14,10 @@ module.exports = merge(webpackConfig, {
   },
 
   devServer: {
-    port: 8080,
-    publicPath: "http://localhost:8080/",
-    hot: true
+    contentBase: "./dist",
+    historyApiFallback: true,
   },
+
   plugins: [
     new webpack.DefinePlugin({
       PRODUCTION: JSON.stringify(false),

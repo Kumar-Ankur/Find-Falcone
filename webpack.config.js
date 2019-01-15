@@ -5,8 +5,9 @@ var WebpackBundleAnalyzer = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 
 const htmlPlugin = new HtmlWebPackPlugin({
-  template: 'index.html',
-  filename: "index.html"
+  template: 'public/index.html',
+  filename: "index.html",
+  favicon: './public/favicon.ico',
 });
 
 const BundleAnalyze = new WebpackBundleAnalyzer({
@@ -23,10 +24,10 @@ module.exports = {
    * webpack 4 there is no need to define the entry point: it will take ./src/index.js as the default!
    */
   entry: {
-    main: ['./src/index.js','./sass/main.scss',],
+    main: ['./src/index.js','./sass/main.scss'],
   },
   resolve: {
-    extensions: [".js", ".jsx", ".css", ".otf", ".png",".ico",".scss"]
+    extensions: ["*", ".js", ".jsx", ".css", ".otf", ".png",".ico",".scss"]
   },
 
   plugins: [
