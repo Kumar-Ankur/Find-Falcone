@@ -13,14 +13,12 @@ import {
   TableRowColumn
 } from 'material-ui/Table';
 
-const styles = {
-  textTransform: 'uppercase',
-  fontWeight: 'bold',
-  color: 'black',
-  paddingLeft: '-20px',
-  fontSize: '15px',
-  letterSpacing: '1px'
-};
+const stylesRow = {
+  whiteSpace: 'inherit',
+  overflow: 'inherit',
+  paddingLeft: '1.4rem',
+  fontSize: '1.2rem'
+}
 
 class Footer extends Component {
   constructor(props) {
@@ -100,10 +98,10 @@ class Footer extends Component {
     const renderTableData = this.state.vehicle_details.map(vech => {
       return (
         <TableRow>
-          <TableRowColumn>{vech.name}</TableRowColumn>
-          <TableRowColumn>{vech.max_distance}</TableRowColumn>
-          <TableRowColumn>{vech.total_no}</TableRowColumn>
-          <TableRowColumn>{vech.speed}</TableRowColumn>
+          <TableRowColumn style={stylesRow}>{vech.name}</TableRowColumn>
+          <TableRowColumn style={stylesRow}>{vech.max_distance}km</TableRowColumn>
+          <TableRowColumn style={stylesRow}>{vech.total_no}</TableRowColumn>
+          <TableRowColumn style={stylesRow}>{vech.speed}km/hr</TableRowColumn>
         </TableRow>
       );
     });
@@ -153,18 +151,6 @@ class Footer extends Component {
             onRequestClose={() => this.handleClose('open1')}
           >
             <Table>
-              <TableHeader displaySelectAll={false}>
-                <TableRow>
-                  <TableHeaderColumn style={styles}>Name</TableHeaderColumn>
-                  <TableHeaderColumn style={styles}>
-                    Max Distance
-                  </TableHeaderColumn>
-                  <TableHeaderColumn style={styles}>
-                    Total Number
-                  </TableHeaderColumn>
-                  <TableHeaderColumn style={styles}>Speed</TableHeaderColumn>
-                </TableRow>
-              </TableHeader>
               <TableBody displayRowCheckbox={false}>
                 {renderTableData}
               </TableBody>

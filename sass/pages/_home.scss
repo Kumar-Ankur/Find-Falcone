@@ -89,3 +89,99 @@
     animation: timeAnimation 2s ease-in;
   }
 }
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .section-falcone {
+    background-color: $color-grey-light-1;
+    // padding: 0 0 1rem 0;
+    // margin-top: 1rem;
+    width: 100%;
+    top: 0;
+    height: 100vh;
+    position: relative;
+  }
+  
+  .section-auto {
+    display: inline-block;
+    margin-left: 3rem;
+    margin-top: 8rem;
+  }
+  
+  .section-planet {
+    width: 100%;
+    background-color: $color-grey-light-1;
+    padding: 5rem 0 0 0;
+  
+    &__heading {
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      position: absolute;
+      left: 0;
+      top: 10rem;
+      font-size: 1.2rem;
+      background-image: linear-gradient(
+        to right,
+        $color-tertiary-light,
+        $color-tertiary-dark
+      );
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+  
+    &__error {
+      text-transform: uppercase;
+      letter-spacing: 0.15rem;
+      position: absolute;
+      bottom: 12rem;
+      left: 30%;
+      font-size: 1.8rem;
+      // color: $color-white;
+      // background-color: red;
+  
+      background-image: linear-gradient(
+        to right,
+        red,
+        darkred
+      );
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+  }
+  
+  .section-vechile {
+    margin-top: 0;
+  }
+  
+  .section-btn {
+    position: absolute;
+    // bottom: 2rem;
+    bottom: -29rem;
+    left: 30%
+  }
+  
+  .section-time {
+    position: relative;
+    text-transform: uppercase;
+    transition: animation 2s ease-in;
+    
+  
+    &__heading {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.2rem;
+      position: absolute;
+      background-image: linear-gradient(
+        to right,
+        
+        $color-tertiary-light,
+        $color-tertiary-dark
+      );
+      -webkit-background-clip: text;
+      color: transparent;
+      left: 2rem;
+      top: -58rem;
+      animation: timeAnimation 2s ease-in;
+    }
+  }
+}

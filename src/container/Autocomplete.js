@@ -326,10 +326,10 @@ class AutoCompleteList extends Component {
               dataSource={this.state.remaining_planet}
               filter={(searchText, key) => true}
               listStyle={{
-                maxHeight: 300,
+                maxHeight: 200,
                 overflow: 'auto',
                 backgroundColor: '#f7f7f7',
-                overflowY: 'hidden'
+                // overflowY: 'hidden'
               }}
               onNewRequest={value => this.handleSearch(value, destination)}
               onUpdateInput={value => this.handleSearch(value, destination)}

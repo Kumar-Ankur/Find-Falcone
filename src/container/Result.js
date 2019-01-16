@@ -90,7 +90,7 @@ class Result extends Component {
           <img src={Logo} alt="logo" className="section-result__logo" />
         </div>
         {this.displayResult(this.props.location.state.total_time)}
-        <section className="section-btn">
+        <section className="result-btn">
           <Link to="/findFalcone">
             <a href="#" className="navbtn navbtn--animated navbtn--white">
               Start Again

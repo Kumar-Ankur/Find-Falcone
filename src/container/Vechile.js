@@ -260,6 +260,7 @@ class Vechile extends Component {
             ''
           )}
         </form>
+
         <form>
           {this.state.isVisible.vechile4 ? (
             <div className="col-1-of-4 vechile vechile__4">
